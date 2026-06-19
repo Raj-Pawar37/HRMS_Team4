@@ -1,0 +1,229 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="HRMS_Team4.Admin.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <link href="../assets/css/main.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="sidebar" id="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <a href="index.html" class="logo logo-normal">
+                    <img src="<%= ResolveUrl("~/assets/img/logo.svg") %>" />
+                </a>
+                <a href="index.html" class="logo-small">
+                    <img src="<%= ResolveUrl("~/assets/img/logo-small.svg") %>" />
+                </a>
+                <a href="index.html" class="dark-logo">
+                    <img src="<%= ResolveUrl("~/assets/img/logo-white.svg") %>" />
+                </a>
+            </div>
+            <!-- /Logo -->
+            <div class="modern-profile p-3 pb-0">
+                <div class="text-center rounded bg-light p-3 mb-4 user-profile">
+                    <div class="avatar avatar-lg online mb-3">
+                        <img src="<%= ResolveUrl("~/assets/img/profiles/avatar-02.jpg") %>" />
+                    </div>
+                    <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+                    <p class="fs-10">System Admin</p>
+                </div>
+                <div class="sidebar-nav mb-3">
+                    <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified bg-transparent"
+                        role="tablist">
+                        <li class="nav-item"><a class="nav-link active border-0" href="#">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link border-0" href="chat.html">Chats</a></li>
+                        <li class="nav-item"><a class="nav-link border-0" href="email.html">Inbox</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-header p-3 pb-0 pt-2">
+                <div class="text-center rounded bg-light p-2 mb-4 sidebar-profile d-flex align-items-center">
+                    <div class="avatar avatar-md onlin">
+                        <img src="<%= ResolveUrl("~/assets/img/profiles/avatar-02.jpg") %>" />
+                    </div>
+                    <div class="text-start sidebar-profile-info ms-2">
+                        <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+                        <p class="fs-10">System Admin</p>
+                    </div>
+                </div>
+                <div class="input-group input-group-flat d-inline-flex mb-4">
+                    <span class="input-icon-addon">
+                        <i class="ti ti-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search in HRMS">
+                    <span class="input-group-text">
+                        <kbd>CTRL + / </kbd>
+                    </span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between menu-item mb-3">
+                    <div class="me-3">
+                        <a href="calendar.html" class="btn btn-menubar">
+                            <i class="ti ti-layout-grid-remove"></i>
+                        </a>
+                    </div>
+                    <div class="me-3">
+                        <a href="chat.html" class="btn btn-menubar position-relative">
+                            <i class="ti ti-brand-hipchat"></i>
+                            <span
+                                class="badge bg-info rounded-pill d-flex align-items-center justify-content-center header-badge">5</span>
+                        </a>
+                    </div>
+                    <div class="me-3 notification-item">
+                        <a href="activity.html" class="btn btn-menubar position-relative me-1">
+                            <i class="ti ti-bell"></i>
+                            <span class="notification-status-dot"></span>
+                        </a>
+                    </div>
+                    <div class="me-0">
+                        <a href="email.html" class="btn btn-menubar">
+                            <i class="ti ti-message"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title"><span>MAIN MENU</span></li>
+                        <li>
+                            <ul>
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-smart-home"></i><span>Dashboard</span><span
+                                            class="badge badge-danger fs-10 fw-medium text-white p-1">Hot</span><span
+                                                class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+                                        <li><a href="index.html">Admin Dashboard</a></li>
+                                        <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
+                                        <li><a href="deals-dashboard.html">Deals Dashboard</a></li>
+                                        <li><a href="leads-dashboard.html">Leads Dashboard</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-smart-home"></i><span>Reports</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeReport.aspx") %>">Employee Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/AttendanceReport.aspx") %>">Attendance Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/LeaveReport.aspx") %>">Leave Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/PayslipReport.aspx") %>">Payslip Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/ProjectReport.aspx") %>">Project Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/TaskReport.aspx") %>">Task Report</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/DailyReport.aspx") %>">Daily Report</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-smart-home"></i><span>Training</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+
+                                        <li><a href="<%= ResolveUrl("~/Admin/TrainingList.aspx") %>">Training List</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Trainers.aspx") %>">Trainers</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/TrainersType.aspx") %>">Trainers Type</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-smart-home"></i><span>Projects</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Project.aspx") %>">Project</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Task.aspx") %>">Task</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Taskboard</a></li>
+
+                                    </ul>
+                                </li>
+
+
+
+
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-smart-home"></i><span>Leaves</span>
+                                        <span class="menu-arrow"></span>
+
+                                    </a>
+                                    <ul>
+                                        <li><a href="<%= ResolveUrl("~/Admin/LeaveType.aspx") %>">Add Leave Type</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/AddLeave.aspx") %>">Add Leave</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/DepartmentLeaveDetails.aspx") %>">Department Leave Details</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/LeaveSetting.aspx") %>">Leave Setting</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/AttendanceAdmin.aspx") %>">Attendance Admin</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/TimeSheet.aspx") %>">TimeSheet</a></li>
+                                    </ul>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="<%= ResolveUrl("~/Admin/Termination.aspx") %>">
+                                        <i class="ti ti-circle-x"></i>
+                                        <span>Termination</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<%= ResolveUrl("~/Admin/Resignation.aspx") %>">
+                                        <i class="ti ti-external-link"></i>
+                                        <span>Resignation</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="<%= ResolveUrl("~/Admin/Promotion.aspx") %>">
+                                        <i class="ti ti-speakerphone"></i>
+                                        <span>Promotion</span>
+                                    </a>
+                                </li>
+                            </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <div>
+        </div>
+    </form>
+
+    <!-- JS files -->
+    <script src="<%= ResolveUrl("~/assets/js/jquery-3.7.1.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/bootstrap.bundle.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/feather.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/jquery.slimscroll.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/js/jquery.dataTables.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/dataTables.bootstrap5.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/js/script.js") %>"></script>
+
+</body>
+</html>
+https://localhost:44340/assets/plugins/feather/feather.min.js
