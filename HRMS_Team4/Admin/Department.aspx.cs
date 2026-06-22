@@ -31,36 +31,6 @@ namespace HRMS_Team4.Admin
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //Events Handlement 
         protected void btnAddDepartment_Click(object sender, EventArgs e)
         {
@@ -202,19 +172,23 @@ namespace HRMS_Team4.Admin
 
         public void Department_ReadAll()
         {
-            string q = "SP_Departments_ReadAll";
+            string status = (string.IsNullOrEmpty(DropDownList1.SelectedValue) || DropDownList1.SelectedValue == "select")
+                ? null
+                : DropDownList1.SelectedValue;
 
-            SqlDataAdapter ada = new SqlDataAdapter(q, conn);
-            ada.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            SqlCommand cmd = new SqlCommand("SP_Departments_ReadAllPaginated", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Status", (object)status ?? DBNull.Value);
+
+            SqlDataAdapter ada = new SqlDataAdapter(cmd);
 
             DataSet ds = new DataSet();
             ada.Fill(ds);
 
             rptDepartments.DataSource = ds.Tables[0];
             rptDepartments.DataBind();
-            Repeater1.DataSource = ds.Tables[0];
-            Repeater1.DataBind();
-
         }
 
 
@@ -243,16 +217,10 @@ namespace HRMS_Team4.Admin
             return d;
         }
 
-
-
-
-
-
-
-
-
-
-
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Department_ReadAll();
+        }
 
 
     }

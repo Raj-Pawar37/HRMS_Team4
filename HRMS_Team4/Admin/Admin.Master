@@ -18,9 +18,17 @@
     <link href="<%= ResolveUrl("~/assets/css/font-awesome.min.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/assets/css/bootstrap-datetimepicker.min.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.css") %>" rel="stylesheet" />
-    <link href="<%= ResolveUrl("~/assets/css/dataTables.bootstrap5.min.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/assets/css/style.css") %>" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <%--CDN for the data tables--%> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+
+
+
 
 
 
@@ -254,13 +262,9 @@
     </form>
 
     <!-- JS files -->
-    <script src="<%= ResolveUrl("~/assets/js/jquery-3.7.1.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/bootstrap.bundle.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/feather.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/jquery.slimscroll.min.js") %>"></script>
-
-    <script src="<%= ResolveUrl("~/assets/js/jquery.dataTables.min.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/js/dataTables.bootstrap5.min.js") %>"></script>
 
     <script src="<%= ResolveUrl("~/assets/js/moment.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.js") %>"></script>

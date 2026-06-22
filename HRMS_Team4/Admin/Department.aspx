@@ -61,47 +61,20 @@
             <div class="d-flex my-xl-auto right-content align-items-center flex-wrap row-gap-3">
 
                 <div class="dropdown me-3">
-                    <select id="sts" class="form-control" fdprocessedid="d86fj">
-                        <option value="select">Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
-
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                        <asp:ListItem Value="">Status</asp:ListItem>
+                        <asp:ListItem Value="Active">Active</asp:ListItem>
+                        <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
 
-
-                <div class="dropdown">
-
-                    <select id="opt" class="form-control" fdprocessedid="jqatds">
-                        <option value="select">Sort By</option>
-                        <option value="asc">ascending</option>
-                        <option value="desc">descending</option>
-                    </select>
-                </div>
 
             </div>
         </div>
         <div class="card-body p-0">
             <div class="custom-datatable-filter table-responsive">
                 <div id="table_wrapper" class="dt-container dt-empty-footer">
-                    <div class="dt-layout-row">
-                        <div class="dt-layout-cell dt-layout-start">
-                            <div class="dt-length">
-                                <select aria-controls="table" class="dt-input" id="dt-length-0" fdprocessedid="zegt8">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select><label for="dt-length-0"> entries per page</label>
-                            </div>
-                        </div>
-                        <div class="dt-layout-cell dt-layout-end">
-                            <div class="dt-search">
-                                <label for="dt-search-0">Search:</label><input type="search" class="dt-input" id="dt-search-0" placeholder="" aria-controls="table">
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="dt-layout-row dt-layout-table">
                         <div class="dt-layout-cell dt-layout-full table-responsive">
                             <table class="table dataTable" id="table" aria-describedby="table_info">
@@ -114,7 +87,7 @@
                                     <col data-dt-column="5">
                                     <col data-dt-column="6">
                                 </colgroup>
-                                <thead class="thead-light">
+                                <thead class="table-dark" >
                                     <tr>
                                         <th scope="col" data-dt-column="0" rowspan="1" colspan="1" class="dt-type-numeric dt-orderable-asc dt-orderable-desc dt-ordering-asc" aria-sort="ascending" aria-label="Id: Activate to invert sorting"><span class="dt-column-title">Id</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
                                         <th scope="col" data-dt-column="1" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Name: Activate to sort"><span class="dt-column-title">Name</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
@@ -154,8 +127,7 @@
                                                         CommandArgument='<%# Eval("DepartmentId") %>'
                                                         OnClick="btnDelete_Click"
                                                         OnClientClick="return confirm('Are you sure you want to delete this department?');">
-                                                        <i class="bi bi-trash"></i>dl
-                                                        <%--<i class="bi bi-trash"></i>--%>
+                                                        <i class="ti ti-trash"></i>
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>
@@ -169,31 +141,14 @@
                             </table>
                         </div>
                     </div>
-                    <div class="dt-layout-row">
-                        <div class="dt-layout-cell dt-layout-start">
-                            <div class="dt-info" aria-live="polite" id="table_info" role="status">Showing 1 to 5 of 5 entries</div>
-                        </div>
-                        <div class="dt-layout-cell dt-layout-end">
-                            <div class="dt-paging">
-                                <nav aria-label="pagination">
-                                    <button class="dt-paging-button disabled first" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="First" data-dt-idx="first" tabindex="-1">«</button>
-                                    <button class="dt-paging-button disabled previous" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="Previous" data-dt-idx="previous" tabindex="-1">‹</button>
-                                    <button class="dt-paging-button current" role="link" type="button" aria-controls="table" aria-current="page" data-dt-idx="0" fdprocessedid="xcsvkr">1</button>
-                                    <button class="dt-paging-button disabled next" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="Next" data-dt-idx="next" tabindex="-1">›</button>
-                                    <button class="dt-paging-button disabled last" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="Last" data-dt-idx="last" tabindex="-1">»</button>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
-
-       
+        <hr />
 
     </div>
-    <!-- /Performance Indicator list -->
+
 
 
 
@@ -226,8 +181,8 @@
                                 <label class="form-label">Status</label>
                                 <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
                                     <asp:ListItem Value="">Select</asp:ListItem>
-                                    <asp:ListItem Value="1">Active</asp:ListItem>
-                                    <asp:ListItem Value="0">Inactive</asp:ListItem>
+                                    <asp:ListItem Value="Active">Active</asp:ListItem>
+                                    <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -249,6 +204,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+        });
+    </script>
+
+
+
 
 
 </asp:Content>
