@@ -2003,6 +2003,7 @@
     <Content Include="assets\plugins\twitter-bootstrap-wizard\prettify.js" />
     <Content Include="assets\scss\main.css" />
     <Content Include="assets\scss\pages\deals-dashboard.css" />
+    <Content Include="uploads\user\man1.jpg" />
     <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2072,6 +2073,11 @@
     </Compile>
     <Compile Include="Models\DepartmentDTO.cs" />
     <Compile Include="Models\DesignationDTO.cs" />
+    <Compile Include="Models\EducationDetailsDTO.cs" />
+    <Compile Include="Models\EmployeeBankDetailsDTO.cs" />
+    <Compile Include="Models\EmployeeDTO.cs" />
+    <Compile Include="Models\EmployeeFamilyDetailsDTO.cs" />
+    <Compile Include="Models\ExperienceDTO.cs" />
     <Compile Include="Models\RoleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\User.Master.cs">

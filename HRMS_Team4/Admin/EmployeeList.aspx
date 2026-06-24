@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="content">
 
-    <!-- Breadcrumb -->
+
+
     <div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
         <div class="my-auto mb-2">
             <h2 class="mb-1">Employee</h2>
@@ -24,8 +24,8 @@
         <div class="d-flex my-xl-auto right-content align-items-center flex-wrap ">
             <div class="me-2 mb-2">
                 <div class="d-flex align-items-center border bg-white rounded p-1 me-2 icon-list">
-                    <a class="btn btn-icon btn-sm active bg-primary text-white me-1" href="/Employee/EmpList"><i class="ti ti-list-tree"></i></a>
-                    <a class="btn btn-icon btn-sm" href="/Employee/EmployeeGrid"><i class="ti ti-layout-grid"></i></a>
+                    <a asp-controller="Employee" asp-action="EmpList" class="btn btn-icon btn-sm active bg-primary text-white me-1"><i class="ti ti-list-tree"></i></a>
+                    <a asp-controller="Employee" asp-action="EmployeeGrid" class="btn btn-icon btn-sm"><i class="ti ti-layout-grid"></i></a>
                 </div>
             </div>
             <div class="me-2 mb-2">
@@ -44,7 +44,12 @@
                 </div>
             </div>
             <div class="mb-2">
-                <a href="#" id="openmod" class="btn btn-primary d-flex align-items-center"><i class="ti ti-circle-plus me-2"></i>Add Employee</a>
+                <a href="javascript:void(0);"
+                    data-bs-toggle="modal"
+                    data-bs-target="#EmployeeModal"
+                    class="btn btn-primary d-flex align-items-center">
+                    <i class="ti ti-circle-plus me-2"></i>Add Employee
+                </a>
             </div>
             <div class="head-icons ms-2">
                 <a href="javascript:void(0);" class="" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Collapse" id="collapse-header">
@@ -67,9 +72,19 @@
                         </div>
                         <div class="ms-2 overflow-hidden">
                             <p class="fs-12 fw-medium mb-1 text-truncate">Total Employee</p>
-                            <h4>7</h4>
+                            <h4>
+                                <asp:Label ID="LblTotalEmployee" runat="server" Text="Label"></asp:Label>
+                            </h4>
                         </div>
                     </div>
+                    @*
+                    <div>
+                        <span class="badge badge-soft-purple badge-sm fw-normal">
+                            <i class="ti ti-arrow-wave-right-down"></i>
+                            +19.01%
+                        </span>
+                    </div>
+                    *@
                 </div>
             </div>
         </div>
@@ -84,9 +99,19 @@
                         </div>
                         <div class="ms-2 overflow-hidden">
                             <p class="fs-12 fw-medium mb-1 text-truncate">Active</p>
-                            <h4>7</h4>
+                            <h4>
+                                <asp:Label ID="LblActiveEmployee" runat="server" Text="Label"></asp:Label>
+                            </h4>
                         </div>
                     </div>
+                    @*
+                    <div>
+                        <span class="badge badge-soft-primary badge-sm fw-normal">
+                            <i class="ti ti-arrow-wave-right-down"></i>
+                            +19.01%
+                        </span>
+                    </div>
+                    *@
                 </div>
             </div>
         </div>
@@ -101,9 +126,20 @@
                         </div>
                         <div class="ms-2 overflow-hidden">
                             <p class="fs-12 fw-medium mb-1 text-truncate">InActive</p>
-                            <h4>0</h4>
+                            <h4>
+                                <asp:Label ID="LblInActiveEmployee" runat="server" Text="Label"></asp:Label>
+
+                            </h4>
                         </div>
                     </div>
+                    @*
+                    <div>
+                        <span class="badge badge-soft-dark badge-sm fw-normal">
+                            <i class="ti ti-arrow-wave-right-down"></i>
+                            +19.01%
+                        </span>
+                    </div>
+                    *@
                 </div>
             </div>
         </div>
@@ -118,9 +154,19 @@
                         </div>
                         <div class="ms-2 overflow-hidden">
                             <p class="fs-12 fw-medium mb-1 text-truncate">New Joiners</p>
-                            <h4>0</h4>
+                            <h4>
+                                <asp:Label ID="LblNewJoiners" runat="server" Text="Label"></asp:Label>
+                            </h4>
                         </div>
                     </div>
+                    @*
+                    <div>
+                        <span class="badge badge-soft-secondary badge-sm fw-normal">
+                            <i class="ti ti-arrow-wave-right-down"></i>
+                            +19.01%
+                        </span>
+                    </div>
+                    *@
                 </div>
             </div>
         </div>
@@ -128,207 +174,316 @@
 
     </div>
 
+
+
     <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
             <h5>Employee List</h5>
-            <div class="d-flex my-xl-auto right-content align-items-center flex-wrap row-gap-3">
 
+            <div class="d-flex my-xl-auto right-content align-items-center flex-wrap row-gap-3">
                 <div class="d-flex mb-1">
                     <div class="d-flex align-items-center me-1">
-                        <label for="startDate" class="me-2">Start:</label>
-                        <input type="date" class="form-control" id="startDate">
+                        <label class="me-2">Start:</label>
+                        <asp:TextBox ID="txtStartDate" runat="server" TextMode="Date" CssClass="form-control" />
                     </div>
                     <div class="d-flex align-items-center me-3">
-                        <label for="endDate" class="me-2">End:</label>
-                        <input type="date" class="form-control" id="endDate">
+                        <label class="me-2">End:</label>
+                        <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date" CssClass="form-control" />
                     </div>
                 </div>
 
                 <div class="dropdown me-3">
-                    <select id="designation" class="form-control" fdprocessedid="4ek98">
-
-                        <option value="12">Software Developer</option>
-                        <option value="15">Sales</option>
-                    </select>
+                    <asp:DropDownList ID="ddlFilterDesignation" runat="server" CssClass="form-control">
+                        <asp:ListItem Value="">Designation</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
-
-
-
-
-
-
 
                 <div class="dropdown me-3">
-                    <select id="sts" class="form-control" fdprocessedid="656ktn">
-                        <option value="select">Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
+                    <asp:DropDownList ID="ddlFilterStatus" runat="server" CssClass="form-control">
+                        <asp:ListItem Value="">Status</asp:ListItem>
+                        <asp:ListItem Value="Active">Active</asp:ListItem>
+                        <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
-
 
                 <div class="dropdown">
-
-                    <select id="opt" class="form-control" fdprocessedid="a4golr">
-                        <option value="">Sorting By</option>
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                        <option value="last7days">Last 7 Days</option>
-                        <option value="thismonth">This Month</option>
-                        <option value="thisyear">This Year</option>
-                    </select>
+                    <asp:DropDownList ID="ddlSorting" runat="server" CssClass="form-control">
+                        <asp:ListItem Value="">Sorting By</asp:ListItem>
+                        <asp:ListItem Value="asc">Ascending</asp:ListItem>
+                        <asp:ListItem Value="desc">Descending</asp:ListItem>
+                        <asp:ListItem Value="last7days">Last 7 Days</asp:ListItem>
+                        <asp:ListItem Value="thismonth">This Month</asp:ListItem>
+                        <asp:ListItem Value="thisyear">This Year</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
-
-
             </div>
         </div>
+
         <div class="card-body p-0">
             <div class="custom-datatable-filter table-responsive">
-                <div id="table_wrapper" class="dt-container dt-empty-footer">
-                    <div class="dt-layout-row">
-                        <div class="dt-layout-cell dt-layout-start">
-                            <div class="dt-length">
-                                <select aria-controls="table" class="dt-input" id="dt-length-0" fdprocessedid="3rf0ji">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="-1">All</option>
-                                </select><label for="dt-length-0"> entries per page</label>
-                            </div>
-                        </div>
-                        <div class="dt-layout-cell dt-layout-end">
-                            <div class="dt-search">
-                                <label for="dt-search-0">Search:</label><input type="search" class="dt-input" id="dt-search-0" placeholder="" aria-controls="table">
-                            </div>
-                        </div>
+                <table class="table dataTable" id="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                            <th>Designation</th>
+                            <th>Reporting Manager</th>
+                            <th>DOJ</th>
+                            <th>Status</th>
+                            <th>CreatedBy</th>
+                            <th>ModifiedBy</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <asp:Repeater ID="rptEmployees" runat="server">
+                            <ItemTemplate>
+                                <tr>
+                                    <td><%# Eval("UserId") %></td>
+
+                                    <td>
+                                        <img src='<%# ResolveUrl("~/" + Eval("ProfilePicture")) %>'
+                                            width="50"
+                                            height="50"
+                                            class="rounded-circle me-2" />
+                                        <%# Eval("FirstName") %> <%# Eval("LastName") %>
+                                    </td>
+
+                                    <td><%# Eval("Email") %></td>
+                                    <td><%# Eval("PhoneNumber") %></td>
+                                    <td><%# Eval("DesignationName") %></td>
+                                    <td><%# Eval("ReportingManagerName") %></td>
+
+                                    <td>
+                                        <%# Eval("DateOfJoining") == DBNull.Value 
+                                        ? "" 
+                                        : Convert.ToDateTime(Eval("DateOfJoining")).ToString("yyyy-MM-dd") %>
+                                    </td>
+
+                                    <td>
+                                        <%# Eval("Status").ToString() == "Active"
+                                        ? "<span class='badge bg-success'><i class='ti ti-point-filled me-1'></i>Active</span>"
+                                        : "<span class='badge bg-danger'><i class='ti ti-point-filled me-1'></i>Inactive</span>" %>
+                                    </td>
+
+                                    <td><%# Eval("CreatedBy") %></td>
+                                    <td><%# Eval("ModifiedBy") %></td>
+
+                                    <td>
+                                        <asp:LinkButton ID="btnEdit" runat="server"
+                                            CssClass="me-2"
+                                            CommandArgument='<%# Eval("UserId") %>'
+                                            OnClick="btnEdit_Click">
+                                        <i class="ti ti-edit"></i>
+                                        </asp:LinkButton>
+
+                                        <asp:LinkButton ID="btnDelete" runat="server"
+                                            CommandArgument='<%# Eval("UserId") %>'
+                                            OnClick="btnDelete_Click"
+                                            OnClientClick="return confirm('Are you sure you want to delete this Employee?');">
+                                        <i class="ti ti-trash"></i>
+                                        </asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="EmployeeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center">
+                        <asp:Label ID="modelHeader" runat="server" Text="Add New Employee" CssClass="modal-title me-2 h4" />
                     </div>
-                    <div class="dt-layout-row dt-layout-table">
-                        <div class="dt-layout-cell dt-layout-full table-responsive">
-                            <table class="table dataTable" id="table" aria-describedby="table_info">
-                                <colgroup>
-                                    <col data-dt-column="0">
-                                    <col data-dt-column="1">
-                                    <col data-dt-column="2">
-                                    <col data-dt-column="3">
-                                    <col data-dt-column="4">
-                                    <col data-dt-column="5">
-                                    <col data-dt-column="6">
-                                    <col data-dt-column="7">
-                                    <col data-dt-column="8">
-                                    <col data-dt-column="9">
-                                    <col data-dt-column="10">
-                                </colgroup>
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col" data-dt-column="0" rowspan="1" colspan="1" class="dt-type-numeric dt-orderable-asc dt-orderable-desc dt-ordering-asc" aria-sort="ascending" aria-label="Id: Activate to invert sorting"><span class="dt-column-title">Id</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="1" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Name: Activate to sort"><span class="dt-column-title">Name</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="2" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Email: Activate to sort"><span class="dt-column-title">Email</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="3" rowspan="1" colspan="1" class="dt-type-numeric dt-orderable-asc dt-orderable-desc" aria-label="Number: Activate to sort"><span class="dt-column-title">Number</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="4" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Designation: Activate to sort"><span class="dt-column-title">Designation</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="5" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Reporting manager: Activate to sort"><span class="dt-column-title">Reporting manager</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="6" rowspan="1" colspan="1" class="dt-type-date dt-orderable-asc dt-orderable-desc" aria-label="DOJ: Activate to sort"><span class="dt-column-title">DOJ</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="7" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Status: Activate to sort"><span class="dt-column-title">Status</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="8" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="CreatedBy: Activate to sort"><span class="dt-column-title">CreatedBy</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="9" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="ModifiedBy: Activate to sort"><span class="dt-column-title">ModifiedBy</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                        <th scope="col" data-dt-column="10" rowspan="1" colspan="1" class="dt-orderable-asc dt-orderable-desc" aria-label="Action: Activate to sort"><span class="dt-column-title">Action</span><span class="dt-column-order" role="button" tabindex="0"></span></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="mydata">
-                                    <tr>
-                                        <td class="dt-type-numeric sorting_1">35</td>
-                                        <td>
-                                            <img src="/Content/uploads/Krish Photo.jpeg" alt="Profile Picture" width="50" height="50" class="rounded-circle">
-                                            Krish Kheloji</td>
-                                        <td>khelojikrish@gmail.com</td>
-                                        <td class="dt-type-numeric">8877665544</td>
-                                        <td>Software Developer</td>
-                                        <td>null</td>
-                                        <td class="dt-type-date">2025-05-02</td>
-                                        <td><span class="badge bg-success"><i class="ti ti-point-filled me-1"></i>Active</span></td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td><a href="#" class="edit-btn" data-id="35"><i class="ti ti-edit"></i></a><a href="#" class="delete-btn" data-id="35"><i class="bi bi-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-type-numeric sorting_1">36</td>
-                                        <td>
-                                            <img src="/Content/uploads/user1.jpg" alt="Profile Picture" width="50" height="50" class="rounded-circle">
-                                            SurajR K</td>
-                                        <td>suraj@gmail.com</td>
-                                        <td class="dt-type-numeric">6546378292</td>
-                                        <td>Software Developer</td>
-                                        <td>Krish</td>
-                                        <td class="dt-type-date">0001-01-01</td>
-                                        <td><span class="badge bg-success"><i class="ti ti-point-filled me-1"></i>Active</span></td>
-                                        <td>admin</td>
-                                        <td>admin</td>
-                                        <td><a href="#" class="edit-btn" data-id="36"><i class="ti ti-edit"></i></a><a href="#" class="delete-btn" data-id="36"><i class="bi bi-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-type-numeric sorting_1">37</td>
-                                        <td>
-                                            <img src="/Content/uploads/user2.jpg" alt="Profile Picture" width="50" height="50" class="rounded-circle">
-                                            Ram Kheloji</td>
-                                        <td>ram@gmail.com</td>
-                                        <td class="dt-type-numeric">8877665544</td>
-                                        <td>Software Developer</td>
-                                        <td>Krish</td>
-                                        <td class="dt-type-date">0001-01-01</td>
-                                        <td><span class="badge bg-success"><i class="ti ti-point-filled me-1"></i>Active</span></td>
-                                        <td>admin</td>
-                                        <td>admin</td>
-                                        <td><a href="#" class="edit-btn" data-id="37"><i class="ti ti-edit"></i></a><a href="#" class="delete-btn" data-id="37"><i class="bi bi-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-type-numeric sorting_1">38</td>
-                                        <td>
-                                            <img src="/Content/uploads/IMG_20230714_114721.jpg" alt="Profile Picture" width="50" height="50" class="rounded-circle">
-                                            Jack J</td>
-                                        <td>jack@gmail.com</td>
-                                        <td class="dt-type-numeric">9988776655</td>
-                                        <td>Software Developer</td>
-                                        <td>Krish</td>
-                                        <td class="dt-type-date">0001-01-01</td>
-                                        <td><span class="badge bg-success"><i class="ti ti-point-filled me-1"></i>Active</span></td>
-                                        <td>admin</td>
-                                        <td>null</td>
-                                        <td><a href="#" class="edit-btn" data-id="38"><i class="ti ti-edit"></i></a><a href="#" class="delete-btn" data-id="38"><i class="bi bi-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dt-type-numeric sorting_1">40</td>
-                                        <td>
-                                            <img src="/Content/uploads/photo.jpeg" alt="Profile Picture" width="50" height="50" class="rounded-circle">
-                                            Harish K</td>
-                                        <td>harish@gmail.com</td>
-                                        <td class="dt-type-numeric">9988776655</td>
-                                        <td>Software Developer</td>
-                                        <td>Krish</td>
-                                        <td class="dt-type-date">2025-02-26</td>
-                                        <td><span class="badge bg-success"><i class="ti ti-point-filled me-1"></i>Active</span></td>
-                                        <td>admin</td>
-                                        <td>admin</td>
-                                        <td><a href="#" class="edit-btn" data-id="40"><i class="ti ti-edit"></i></a><a href="#" class="delete-btn" data-id="40"><i class="bi bi-trash"></i></a></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot></tfoot>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="dt-layout-row">
-                        <div class="dt-layout-cell dt-layout-start">
-                            <div class="dt-info" aria-live="polite" id="table_info" role="status">Showing 1 to 5 of 6 entries</div>
-                        </div>
-                        <div class="dt-layout-cell dt-layout-end">
-                            <div class="dt-paging">
-                                <nav aria-label="pagination">
-                                    <button class="dt-paging-button disabled first" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="First" data-dt-idx="first" tabindex="-1">«</button>
-                                    <button class="dt-paging-button disabled previous" role="link" type="button" aria-controls="table" aria-disabled="true" aria-label="Previous" data-dt-idx="previous" tabindex="-1">‹</button>
-                                    <button class="dt-paging-button current" role="link" type="button" aria-controls="table" aria-current="page" data-dt-idx="0" fdprocessedid="amuyt">1</button>
-                                    <button class="dt-paging-button" role="link" type="button" aria-controls="table" data-dt-idx="1" fdprocessedid="jb4vwrs">2</button>
-                                    <button class="dt-paging-button next" role="link" type="button" aria-controls="table" aria-label="Next" data-dt-idx="next" fdprocessedid="efgsrv">›</button>
-                                    <button class="dt-paging-button last" role="link" type="button" aria-controls="table" aria-label="Last" data-dt-idx="last" fdprocessedid="2d1kq">»</button>
-                                </nav>
+                    <button type="button" class="btn-close custom-btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ti ti-x"></i>
+                    </button>
+                </div>
+
+                <div class="contact-grids-tab">
+                    <ul class="nav nav-underline" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#basic-info" type="button" role="tab" aria-selected="true">Basic Information</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basic-info" role="tabpanel" aria-labelledby="info-tab" tabindex="0">
+                        <div class="modal-body pb-0">
+                            <div class="row">
+
+                                <asp:HiddenField ID="hfUserId" runat="server" />
+                                <asp:HiddenField ID="HiddenField1" runat="server" />
+                                <asp:HiddenField ID="hfProfilePicture" runat="server" />
+                                <div class="col-md-12">
+                                    <div class="d-flex align-items-center flex-wrap row-gap-3 bg-light w-100 rounded p-3 mb-4">
+
+                                        <asp:Image ID="imgProfile"
+                                            runat="server"
+                                            CssClass="avatar avatar-xxl rounded-circle border border-dashed me-2 flex-shrink-0"
+                                            ImageUrl="~/uploads/user/man1.jpg" />
+
+                                        <div class="profile-upload">
+                                            <div class="mb-2">
+                                                <h6 class="mb-1">Upload Profile Image</h6>
+                                                <p class="fs-12">Image should be below 4 mb</p>
+                                            </div>
+
+                                            <div class="profile-uploader d-flex align-items-center">
+                                                <div class="drag-upload-btn btn btn-sm btn-primary me-2">
+                                                    Upload
+                                                    <asp:FileUpload ID="fuProfilePicture"
+                                                        runat="server"
+                                                        CssClass="form-control image-sign" />
+                                                </div>
+
+                                                <button type="button" class="btn btn-light btn-sm">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Last Name</label>
+                                        <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Password <span class="text-danger">*</span></label>
+                                        <div class="pass-group">
+                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="pass-input form-control" />
+                                            <span class="ti toggle-password ti-eye-off"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Joining Date <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtDateOfJoining" runat="server" TextMode="Date" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Birth Date <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtDateOfBirth" runat="server" TextMode="Date" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Role</label>
+                                        <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-control" />
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="departmentContainer">
+                                    <div class="mb-3">
+                                        <label class="form-label">Department</label>
+                                        <asp:DropDownList ID="ddlDepartment" runat="server" CssClass="form-control" />
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="managerContainer">
+                                    <div class="mb-3">
+                                        <label class="form-label">Manager</label>
+                                        <asp:DropDownList ID="ddlManager" runat="server" CssClass="form-control" />
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="designationContainer">
+                                    <div class="mb-3">
+                                        <label class="form-label">Designation</label>
+                                        <asp:DropDownList ID="ddlDesignation" runat="server" CssClass="form-control" />
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Address<span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Gender</label>
+                                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control">
+                                            <asp:ListItem Value="">Select</asp:ListItem>
+                                            <asp:ListItem Value="Male">Male</asp:ListItem>
+                                            <asp:ListItem Value="Female">Female</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Status</label>
+                                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
+                                            <asp:ListItem Value="">Select</asp:ListItem>
+                                            <asp:ListItem Value="Active">Active</asp:ListItem>
+                                            <asp:ListItem Value="Inactive">Inactive</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <div class="error-msg text-danger" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">About <span class="text-danger">*</span></label>
+                                        <asp:TextBox ID="txtAboutEmployee" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control" />
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-light border me-2" data-bs-dismiss="modal">Cancel</button>
+                            <asp:Button ID="btnAddEmployee" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="btnAddEmployee_Click" />
                         </div>
                     </div>
                 </div>
@@ -336,6 +491,16 @@
         </div>
     </div>
 
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+        });
+    </script>
 
 </asp:Content>
