@@ -32,6 +32,18 @@
 
 
 
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/feather.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/tabler-icons/webfont/tabler-icons.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/select2/css/select2.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/font-awesome.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap-datetimepicker.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/dataTables.bootstrap5.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/style.css") %>" rel="stylesheet" />
+
+
+
 
 </head>
 <body>
