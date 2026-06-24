@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HRMS_Team4.Admin
+namespace HRMS_Team4.Manager
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Manager : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +23,5 @@ namespace HRMS_Team4.Admin
 
             Response.Redirect("~/Account/Login.aspx");
         }
-
-
     }
 }

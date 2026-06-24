@@ -2053,8 +2053,10 @@
     <Content Include="assets\plugins\twitter-bootstrap-wizard\prettify.js" />
     <Content Include="assets\scss\main.css" />
     <Content Include="assets\scss\pages\deals-dashboard.css" />
+    <Content Include="Manager\TicketAssignment.aspx" />
     <Content Include="Promotion.aspx" />
     <Content Include="uploads\user\man1.jpg" />
+    <Content Include="User\UserProfile.aspx" />
     <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2346,6 +2348,20 @@
     <Compile Include="Admin\WebForm3.aspx.designer.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Manager.Master.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager.Master.designer.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TicketAssignment.aspx.cs">
+      <DependentUpon>TicketAssignment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\TicketAssignment.aspx.designer.cs">
+      <DependentUpon>TicketAssignment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Promotion.aspx.cs">
       <DependentUpon>Promotion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2383,6 +2399,13 @@
     </Compile>
     <Compile Include="User\User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -11982,6 +12005,7 @@
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.css.map" />
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.scss" />
     <Content Include="User\User.Master" />
+    <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -11992,11 +12016,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Manager\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="NewFolder2\" />
     <Folder Include="uploads\logos\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\plugins\flatpickr\l10n\ar-dz.d.ts" />
