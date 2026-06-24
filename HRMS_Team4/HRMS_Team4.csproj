@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Project.aspx" />
+    <Content Include="Admin\ProjectUpload.aspx" />
     <Content Include="Admin\WebForm2.aspx" />
     <Content Include="Admin\WebForm3.aspx" />
     <Content Include="assets\css\animate.css" />
@@ -2007,6 +2009,20 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProjectUpload.aspx.cs">
+      <DependentUpon>ProjectUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProjectUpload.aspx.designer.cs">
+      <DependentUpon>ProjectUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
