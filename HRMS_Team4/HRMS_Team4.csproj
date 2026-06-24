@@ -88,6 +88,7 @@
     <Content Include="Admin\Designation.aspx" />
     <Content Include="Admin\EmployeeDetails.aspx" />
     <Content Include="Admin\EmployeeList.aspx" />
+    <Content Include="Admin\Oraganization.aspx" />
     <Content Include="Admin\Role.aspx" />
     <Content Include="Admin\WebForm2.aspx" />
     <Content Include="Admin\WebForm3.aspx" />
@@ -2081,6 +2082,13 @@
     <Compile Include="Admin\EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Oraganization.aspx.cs">
+      <DependentUpon>Oraganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Oraganization.aspx.designer.cs">
+      <DependentUpon>Oraganization.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Role.aspx.cs">
       <DependentUpon>Role.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2116,6 +2124,7 @@
     <Compile Include="Models\EmployeeDTO.cs" />
     <Compile Include="Models\EmployeeFamilyDetailsDTO.cs" />
     <Compile Include="Models\ExperienceDTO.cs" />
+    <Compile Include="Models\OrganizationDTO.cs" />
     <Compile Include="Models\RoleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\User.Master.cs">
@@ -11736,6 +11745,7 @@
     <Folder Include="Manager\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="NewFolder2\" />
+    <Folder Include="uploads\logos\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\plugins\flatpickr\l10n\ar-dz.d.ts" />
