@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
@@ -8,7 +9,7 @@ namespace HRMS_Team4.Admin
 {
     public partial class TrainingList : System.Web.UI.Page
     {
-        string conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pulse360_FinalDb;Integrated Security=True;";
+        string conn = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {

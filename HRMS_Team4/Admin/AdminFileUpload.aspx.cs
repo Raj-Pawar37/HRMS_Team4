@@ -10,11 +10,13 @@ namespace HRMS_Team4.Admin
 {
     public partial class AdminFileUpload : System.Web.UI.Page
     {
-        string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        string connString = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
         public string DocTypeOptions { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             Page.Form.Enctype = "multipart/form-data";
             if (!IsPostBack)
             {

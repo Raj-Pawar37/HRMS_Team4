@@ -7,7 +7,7 @@ namespace HRMS_Team4.Admin
 {
     public partial class EditEmployeeDocName : System.Web.UI.Page
     {
-        string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        string connString = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
