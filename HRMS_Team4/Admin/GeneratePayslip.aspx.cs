@@ -15,7 +15,7 @@ namespace HRMS_Team4.Admin
         SqlConnection con;
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
             if (!IsPostBack)
             {

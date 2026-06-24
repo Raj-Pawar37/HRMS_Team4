@@ -8,7 +8,7 @@ namespace HRMS_Team4.Admin
     public partial class Payslip : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(
-            ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+            ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
 
 
         protected void Page_Load(object sender, EventArgs e)

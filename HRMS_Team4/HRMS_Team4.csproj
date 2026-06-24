@@ -2015,7 +2015,6 @@
     <Content Include="assets\plugins\twitter-bootstrap-wizard\prettify.js" />
     <Content Include="assets\scss\main.css" />
     <Content Include="assets\scss\pages\deals-dashboard.css" />
-    <Content Include="Timesheet.aspx" />
     <Content Include="uploads\user\man1.jpg" />
     <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
@@ -2177,13 +2176,6 @@
     <Compile Include="Models\ExperienceDTO.cs" />
     <Compile Include="Models\RoleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timesheet.aspx.cs">
-      <DependentUpon>Timesheet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Timesheet.aspx.designer.cs">
-      <DependentUpon>Timesheet.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

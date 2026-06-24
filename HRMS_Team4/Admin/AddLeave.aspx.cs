@@ -18,7 +18,7 @@ namespace HRMS_Team4.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
              con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+                ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
             if (!IsPostBack)
             {
@@ -47,9 +47,7 @@ namespace HRMS_Team4.Admin
 
         private void BindLeaveType()
         {
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["db"].ConnectionString);
-
+        
             SqlDataAdapter da = new SqlDataAdapter(
                 "SELECT LeaveTypeId, LeaveType FROM MasterLeaveTypes", con);
 
