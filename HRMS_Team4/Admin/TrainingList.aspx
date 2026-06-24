@@ -30,22 +30,18 @@
                     <h5>Training List</h5>
                       <div class="d-flex my-xl-auto right-content align-items-center flex-wrap row-gap-3">
       
-      <div class="dropdown">
-          <a href="javascript:void(0);" class="dropdown-toggle btn btn-white d-inline-flex align-items-center" data-bs-toggle="dropdown">
-              Sort By : Last 7 Days
-          </a>
-          <ul class="dropdown-menu  dropdown-menu-end p-3">
-              <li>
-                  <a href="javascript:void(0);" class="dropdown-item rounded-1">Recently Added</a>
-              </li>
-              <li>
-                  <a href="javascript:void(0);" class="dropdown-item rounded-1">Ascending</a>
-              </li>
-              <li>
-                  <a href="javascript:void(0);" class="dropdown-item rounded-1">Desending</a>
-              </li>
-          </ul>
-      </div>
+     <div class="dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle btn btn-white d-inline-flex align-items-center" data-bs-toggle="dropdown" id="lblSortText" runat="server">
+        Sort By : Recently Added
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end p-3">
+        <li><asp:LinkButton ID="btnSortRecent" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Recently Added">Recently Added</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSortAsc" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Ascending">Asc (A-Z)</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSortDesc" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Descending">Des (Z-A)</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSort7Days" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Last 7 Days">Last 7 Days</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSortMonth" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Last Month">Last Month</asp:LinkButton></li>
+    </ul>
+</div>
   </div>
                 </div>
                 <div class="card-body p-0">

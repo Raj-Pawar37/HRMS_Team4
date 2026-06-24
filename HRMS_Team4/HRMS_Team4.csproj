@@ -67,6 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddAdminDocName.aspx" />
+    <Content Include="Admin\AddEmployeeDocName.aspx" />
+    <Content Include="Admin\AdminFileUpload.aspx" />
+    <Content Include="Admin\EditAdminDocName.aspx" />
+    <Content Include="Admin\EditEmployeeDocName.aspx" />
+    <Content Include="Admin\FetchAdminDocName.aspx" />
+    <Content Include="Admin\fetchempdoc.aspx" />
+    <Content Include="Admin\FetchEmployeeDocName.aspx" />
     <Content Include="Admin\Trainers.aspx" />
     <Content Include="Admin\TrainersType.aspx" />
     <Content Include="Admin\TrainingList.aspx" />
@@ -2005,12 +2013,68 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddAdminDocName.aspx.cs">
+      <DependentUpon>AddAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddAdminDocName.aspx.designer.cs">
+      <DependentUpon>AddAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddEmployeeDocName.aspx.cs">
+      <DependentUpon>AddEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>AddEmployeeDocName.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminFileUpload.aspx.cs">
+      <DependentUpon>AdminFileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminFileUpload.aspx.designer.cs">
+      <DependentUpon>AdminFileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditAdminDocName.aspx.cs">
+      <DependentUpon>EditAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditAdminDocName.aspx.designer.cs">
+      <DependentUpon>EditAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditEmployeeDocName.aspx.cs">
+      <DependentUpon>EditEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>EditEmployeeDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FetchAdminDocName.aspx.cs">
+      <DependentUpon>FetchAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FetchAdminDocName.aspx.designer.cs">
+      <DependentUpon>FetchAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\fetchempdoc.aspx.cs">
+      <DependentUpon>fetchempdoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\fetchempdoc.aspx.designer.cs">
+      <DependentUpon>fetchempdoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FetchEmployeeDocName.aspx.cs">
+      <DependentUpon>FetchEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FetchEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>FetchEmployeeDocName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Trainers.aspx.cs">
       <DependentUpon>Trainers.aspx</DependentUpon>
@@ -11674,6 +11738,7 @@
     <Folder Include="Manager\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="NewFolder2\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\plugins\flatpickr\l10n\ar-dz.d.ts" />

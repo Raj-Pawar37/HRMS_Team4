@@ -9,7 +9,28 @@
     </asp:ContentPlaceHolder>
 
 
-    <link href="../assets/css/main.css" rel="stylesheet" />
+    <%--<link href="../assets/css/main.css" rel="stylesheet" />--%>
+
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/feather.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/tabler-icons/webfont/tabler-icons.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/select2/css/select2.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/font-awesome.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap-datetimepicker.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/style.css") %>" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <%--CDN for the data tables--%> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+
+
+
+
+
 
 
 </head>
@@ -115,6 +136,27 @@
 
                                 <li class="submenu">
                                     <a href="javascript:void(0);">
+                                        <i class="ti ti-users"></i>
+                                        <span>Employees</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+
+                                    <ul>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Department.aspx") %>">Add Department</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Role.aspx") %>">Add Role</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Designation.aspx") %>">Add Designation</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeList.aspx") %>">Employee List</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeGrid.aspx") %>">Employee Grid</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeDetails.aspx") %>">Employee Details</a></li>
+                                    </ul>
+                                </li>
+
+
+
+
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
                                         <i class="ti ti-smart-home"></i><span>Reports</span>
                                         <span class="menu-arrow"></span>
                                     </a>
@@ -156,7 +198,44 @@
 
                                     </ul>
                                 </li>
-
+                                
+                         <li class="submenu">
+                                        <a href="javascript:void(0);">
+                                            <i class="ti ti-file"></i><span>Master Documents</span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <ul>
+                                            <li class="submenu">
+                                                <a href="javascript:void(0);">Add Master Documents<span class="menu-arrow"></span></a>
+                                                <ul>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/AddAdminDocName.aspx") %>">Add Admin Document</a></li>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/AddEmployeeDocName.aspx") %>">Add Employee Document</a></li>
+                                                </ul>
+                                            </li>
+        
+                                            <li class="submenu">
+                                                <a href="javascript:void(0);">Master Document List<span class="menu-arrow"></span></a>
+                                                <ul>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/FetchAdminDocName.aspx") %>">Admin Document List</a></li>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/FetchEmployeeDocName.aspx") %>">Employee Document List</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-file-upload"></i><span>Documents</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+        
+                <li><a href="<%= ResolveUrl("~/Admin/AdminFileUpload.aspx") %>">Upload Document</a></li>
+                <li><a href="<%= ResolveUrl("~/Admin/fetchempdoc.aspx") %>">Document List</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+                               
 
 
 
@@ -204,26 +283,38 @@
             </div>
         </div>
 
-        <div class="main-wrapper">
-        </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
 
-        <div>
+        <div class="main-wrapper">
+
+            <div class="page-wrapper">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
         </div>
+
+
     </form>
 
     <!-- JS files -->
-    <script src="<%= ResolveUrl("~/assets/js/jquery-3.7.1.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/bootstrap.bundle.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/feather.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/assets/js/jquery.slimscroll.min.js") %>"></script>
 
-    <script src="<%= ResolveUrl("~/assets/js/jquery.dataTables.min.js") %>"></script>
-    <script src="<%= ResolveUrl("~/assets/js/dataTables.bootstrap5.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/moment.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/bootstrap-datetimepicker.min.js") %>"></script>
 
+    <script src="<%= ResolveUrl("~/assets/plugins/select2/js/select2.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/apexchart/apexcharts.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/apexchart/chart-data.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/js/theme-script.js") %>"></script>
+    <%--<script src="<%= ResolveUrl("~/assets/js/theme-colorpicker.js") %>"></script>--%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="<%= ResolveUrl("~/assets/js/script.js") %>"></script>
 
 </body>
 </html>
-https://localhost:44340/assets/plugins/feather/feather.min.js

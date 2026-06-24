@@ -17,13 +17,15 @@ namespace HRMS_Team4.Admin
             }
         }
 
-        private void BindTrainingTypes()
+        private void BindTrainingTypes(string filter = "Recently Added")
         {
             using (SqlConnection con = new SqlConnection(conn))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_GetAllTrainingTypes", con))
+                using (SqlCommand cmd = new SqlCommand("sp_TrainingTypes_GetAll", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Filter", filter); // Pass the filter to SQL
+
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -35,13 +37,22 @@ namespace HRMS_Team4.Admin
             }
         }
 
+        protected void SortFilter_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string selectedFilter = btn.CommandArgument;
+
+            lblSortText.InnerText = "Sort By : " + selectedFilter;
+            BindTrainingTypes(selectedFilter);
+        }
+
         protected void btnAddTrainingType_Click(object sender, EventArgs e)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_InsertTrainingType", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_TrainingType_Insert", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TrainingTypeName", txtTrainingType.Text);
@@ -76,10 +87,10 @@ namespace HRMS_Team4.Admin
                 {
                     using (SqlConnection con = new SqlConnection(conn))
                     {
-                        
-                        using (SqlCommand cmd = new SqlCommand("DELETE FROM TrainingType WHERE TrainingTypeId = @Id", con))
+                        using (SqlCommand cmd = new SqlCommand("sp_DeleteTrainingType", con))
                         {
-                            cmd.Parameters.AddWithValue("@Id", id);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@TrainingTypeId", id);
                             con.Open();
                             cmd.ExecuteNonQuery();
                         }
@@ -98,10 +109,10 @@ namespace HRMS_Team4.Admin
 
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                   
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM TrainingType WHERE TrainingTypeId = @Id", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_TrainingType_GetById", con))
                     {
-                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TrainingTypeId", id);
                         con.Open();
                         using (SqlDataReader dr = cmd.ExecuteReader())
                         {
@@ -124,13 +135,13 @@ namespace HRMS_Team4.Admin
             {
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                 
-                    using (SqlCommand cmd = new SqlCommand("UPDATE TrainingType SET TrainingTypeName=@Type, Description=@Desc, Status=@Status WHERE TrainingTypeId=@Id", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_TrainingType_Update", con))
                     {
-                        cmd.Parameters.AddWithValue("@Type", txtEditType.Text);
-                        cmd.Parameters.AddWithValue("@Desc", txtEditDescription.Text);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TrainingTypeName", txtEditType.Text);
+                        cmd.Parameters.AddWithValue("@Description", txtEditDescription.Text);
                         cmd.Parameters.AddWithValue("@Status", ddlEditStatus.SelectedValue);
-                        cmd.Parameters.AddWithValue("@Id", hfEditId.Value);
+                        cmd.Parameters.AddWithValue("@TrainingTypeId", hfEditId.Value);
 
                         con.Open();
                         cmd.ExecuteNonQuery();

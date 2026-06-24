@@ -17,13 +17,16 @@ namespace HRMS_Team4.Admin
             }
         }
 
-        private void BindTrainers()
+        // 1. Update your BindTrainers method to look exactly like this:
+        private void BindTrainers(string filter = "Recently Added")
         {
             using (SqlConnection con = new SqlConnection(conn))
             {
-                using (SqlCommand cmd = new SqlCommand("Sp_GetAllTariners", con))
+                using (SqlCommand cmd = new SqlCommand("sp_Trainers_GetAll", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Filter", filter); // Pass the filter to SQL
+
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -35,19 +38,27 @@ namespace HRMS_Team4.Admin
             }
         }
 
+        // 2. Add this Click Event anywhere inside your Trainers class:
+        protected void SortFilter_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string selectedFilter = btn.CommandArgument;
+
+            lblSortText.InnerText = "Sort By : " + selectedFilter;
+            BindTrainers(selectedFilter);
+        }
+
         protected void btnAddTrainer_Click(object sender, EventArgs e)
         {
             try
             {
-                // Clean the phone number so the SQL 'bigint' doesn't crash!
                 string cleanPhone = txtPhone.Text.Replace("-", "").Replace("(", "").Replace(")", "").Replace(" ", "");
 
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_insertTrainer", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_Trainer_Insert", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
                         cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                         cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
                         cmd.Parameters.AddWithValue("@Role", txtRole.Text);
@@ -55,8 +66,6 @@ namespace HRMS_Team4.Admin
                         cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                         cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
                         cmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
-
-                        // THE FIX: Giving the stored procedure the empty ProfilePicture it is asking for!
                         cmd.Parameters.AddWithValue("@ProfilePicture", "");
 
                         con.Open();
@@ -65,10 +74,8 @@ namespace HRMS_Team4.Admin
                 }
 
                 BindTrainers();
-
                 txtFirstName.Text = ""; txtLastName.Text = ""; txtRole.Text = "";
                 txtPhone.Text = ""; txtEmail.Text = ""; txtDescription.Text = ""; ddlStatus.SelectedIndex = 0;
-
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('SUCCESS! Trainer was added.'); }, 100);", true);
             }
             catch (Exception ex)
@@ -87,9 +94,10 @@ namespace HRMS_Team4.Admin
                 {
                     using (SqlConnection con = new SqlConnection(conn))
                     {
-                        using (SqlCommand cmd = new SqlCommand("DELETE FROM Trainer WHERE TrainerId = @Id", con))
+                        using (SqlCommand cmd = new SqlCommand("sp_DeleteTrainer", con))
                         {
-                            cmd.Parameters.AddWithValue("@Id", id);
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@TrainerId", id);
                             con.Open();
                             cmd.ExecuteNonQuery();
                         }
@@ -108,9 +116,10 @@ namespace HRMS_Team4.Admin
 
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Trainer WHERE TrainerId = @Id", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_Trainer_GetById", con))
                     {
-                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TrainerId", id);
                         con.Open();
                         using (SqlDataReader dr = cmd.ExecuteReader())
                         {
@@ -139,17 +148,17 @@ namespace HRMS_Team4.Admin
 
                 using (SqlConnection con = new SqlConnection(conn))
                 {
-                    string updateSql = "UPDATE Trainer SET FirstName=@FirstName, LastName=@LastName, Role=@Role, Phone=@Phone, Email=@Email, Description=@Desc, Status=@Status WHERE TrainerId=@Id";
-                    using (SqlCommand cmd = new SqlCommand(updateSql, con))
+                    using (SqlCommand cmd = new SqlCommand("sp_Trainer_Update", con))
                     {
+                        cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FirstName", txtEditFirstName.Text);
                         cmd.Parameters.AddWithValue("@LastName", txtEditLastName.Text);
                         cmd.Parameters.AddWithValue("@Role", txtEditRole.Text);
                         cmd.Parameters.AddWithValue("@Phone", cleanEditPhone);
                         cmd.Parameters.AddWithValue("@Email", txtEditEmail.Text);
-                        cmd.Parameters.AddWithValue("@Desc", txtEditDescription.Text);
+                        cmd.Parameters.AddWithValue("@Description", txtEditDescription.Text);
                         cmd.Parameters.AddWithValue("@Status", ddlEditStatus.SelectedValue);
-                        cmd.Parameters.AddWithValue("@Id", hfEditId.Value);
+                        cmd.Parameters.AddWithValue("@TrainerId", hfEditId.Value);
 
                         con.Open();
                         cmd.ExecuteNonQuery();

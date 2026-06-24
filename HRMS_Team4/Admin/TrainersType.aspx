@@ -35,28 +35,16 @@
                     <h5>Training Type List</h5>
                     <div class="d-flex my-xl-auto right-content align-items-center flex-wrap row-gap-3">
                         
-                        <div class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle btn btn-white d-inline-flex align-items-center" data-bs-toggle="dropdown">
-                                Sort By : Last 7 Days
-                            </a>
-                            <ul class="dropdown-menu  dropdown-menu-end p-3">
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Recently Added</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Ascending</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Desending</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Last Month</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Last 7 Days</a>
-                                </li>
-                            </ul>
-                        </div>
+                      <div class="dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle btn btn-white d-inline-flex align-items-center" data-bs-toggle="dropdown" id="lblSortText" runat="server">
+        Sort By : Recently Added
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end p-3">
+        <li><asp:LinkButton ID="btnSortRecent" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Recently Added">Recently Added</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSortAsc" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Ascending">Ascending (A-Z)</asp:LinkButton></li>
+        <li><asp:LinkButton ID="btnSortDesc" runat="server" CssClass="dropdown-item rounded-1" OnClick="SortFilter_Click" CommandArgument="Descending">Descending (Z-A)</asp:LinkButton></li>
+    </ul>
+               </div>
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -91,12 +79,13 @@
                                             <td>
                                                 <%# Eval("Description") %>
                                             </td>
-                                            <td>
-                                                <span class="badge badge-success d-inline-flex align-items-center badge-xs">
-                                                    <i class="ti ti-point-filled me-1"></i><%# Eval("Status") %>
+                                              <td>
+                                                <span class='badge <%# Eval("Status").ToString()=="Active" ? "bg-success" : "bg-danger" %>'>
+                                                    <i class="ti ti-point-filled me-1"></i>
+                                                    <%# Eval("Status") %>
                                                 </span>
                                             </td>
-                                            <td>
+                                                <td>
                                                 <div class="action-icon d-inline-flex">
                                                     <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("TrainingTypeId") %>' CssClass="me-2 text-primary"><i class="ti ti-edit"></i></asp:LinkButton>
                                                     <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CommandArgument='<%# Eval("TrainingTypeId") %>' CssClass="text-danger" OnClientClick="return confirm('WARNING: Are you sure you want to permanently delete this Training Type?');"><i class="ti ti-trash"></i></asp:LinkButton>
@@ -110,14 +99,14 @@
                     </div>
                 </div>
             </div>
-            </div>
+           
 
         <div class="footer d-sm-flex align-items-center justify-content-between border-top bg-white p-3">
             <p class="mb-0">2014 - 2025 &copy; SmartHR.</p>
             <p>Designed &amp; Developed By <a href="javascript:void(0);" class="text-primary">Dreams</a></p>
         </div>
 
-    </div>
+    
     
     <div class="modal fade" id="add_training_type">
         <div class="modal-dialog modal-dialog-centered modal-md">
@@ -222,5 +211,6 @@
                     </div>
                 </div>
             </div>
-       
+       </div>
+        </div>
 </asp:Content>
