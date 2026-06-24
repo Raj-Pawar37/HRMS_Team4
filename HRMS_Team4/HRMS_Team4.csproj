@@ -1,5 +1,4 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +51,9 @@
     <Reference Include="Google.Apis.Core, Version=1.75.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Core.1.75.0\lib\net462\Google.Apis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -76,6 +78,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddEvent.aspx" />
+    <Content Include="Admin\AddMasterEvent.aspx" />
+    <Content Include="Admin\EventList.aspx" />
+    <Content Include="Admin\Promotion.aspx" />
+    <Content Include="Admin\Resignation.aspx" />
+    <Content Include="Admin\Termination.aspx" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -84,15 +92,39 @@
     <Content Include="Account\GoogleCallback.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\AddLeave.aspx" />
+    <Content Include="Admin\AttendanceAdmin.aspx" />
+    <Content Include="Admin\DepartmentLeaveDetails.aspx" />
+    <Content Include="Admin\EmployeeSalary.aspx" />
+    <Content Include="Admin\EmpployeeSalaryList.aspx" />
+    <Content Include="Admin\GeneratePayslip.aspx" />
+    <Content Include="Admin\LeaveSetting.aspx" />
+    <Content Include="Admin\LeaveType.aspx" />
+    <Content Include="Admin\MasterPayroll.aspx" />
+    <Content Include="Admin\Payslips.aspx" />
+    <Content Include="Admin\TimeSheet.aspx" />
+    <Content Include="Admin\TransactionHistory.aspx" />
     <Content Include="Admin\Department.aspx" />
     <Content Include="Admin\Designation.aspx" />
     <Content Include="Admin\EmployeeDetails.aspx" />
     <Content Include="Admin\EmployeeList.aspx" />
     <Content Include="Admin\Oraganization.aspx" />
     <Content Include="Admin\Role.aspx" />
+    <Content Include="Admin\AddAdminDocName.aspx" />
+    <Content Include="Admin\AddEmployeeDocName.aspx" />
+    <Content Include="Admin\AdminFileUpload.aspx" />
+    <Content Include="Admin\EditAdminDocName.aspx" />
+    <Content Include="Admin\EditEmployeeDocName.aspx" />
+    <Content Include="Admin\FetchAdminDocName.aspx" />
+    <Content Include="Admin\fetchempdoc.aspx" />
+    <Content Include="Admin\FetchEmployeeDocName.aspx" />
+    <Content Include="Admin\Trainers.aspx" />
+    <Content Include="Admin\TrainersType.aspx" />
+    <Content Include="Admin\TrainingList.aspx" />
     <Content Include="Admin\WebForm2.aspx" />
     <Content Include="Admin\WebForm3.aspx" />
     <Content Include="Admin\LeaveType.aspx" />
+    <Content Include="Admin\WebForm4.aspx" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
@@ -2021,6 +2053,7 @@
     <Content Include="assets\plugins\twitter-bootstrap-wizard\prettify.js" />
     <Content Include="assets\scss\main.css" />
     <Content Include="assets\scss\pages\deals-dashboard.css" />
+    <Content Include="Promotion.aspx" />
     <Content Include="uploads\user\man1.jpg" />
     <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
@@ -2040,6 +2073,41 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddEvent.aspx.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEvent.aspx.designer.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddMasterEvent.aspx.cs">
+      <DependentUpon>AddMasterEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddMasterEvent.aspx.designer.cs">
+      <DependentUpon>AddMasterEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddLeave.aspx.cs">
+      <DependentUpon>AddLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddLeave.aspx.designer.cs">
+      <DependentUpon>AddLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddAdminDocName.aspx.cs">
+      <DependentUpon>AddAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddAdminDocName.aspx.designer.cs">
+      <DependentUpon>AddAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddEmployeeDocName.aspx.cs">
+      <DependentUpon>AddEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>AddEmployeeDocName.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2053,6 +2121,111 @@
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EventList.aspx.cs">
+      <DependentUpon>EventList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EventList.aspx.designer.cs">
+      <DependentUpon>EventList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Promotion.aspx.cs">
+      <DependentUpon>Promotion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Promotion.aspx.designer.cs">
+      <DependentUpon>Promotion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Resignation.aspx.cs">
+      <DependentUpon>Resignation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Resignation.aspx.designer.cs">
+      <DependentUpon>Resignation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Termination.aspx.cs">
+      <DependentUpon>Termination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Termination.aspx.designer.cs">
+      <DependentUpon>Termination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AttendanceAdmin.aspx.cs">
+      <DependentUpon>AttendanceAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AttendanceAdmin.aspx.designer.cs">
+      <DependentUpon>AttendanceAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DepartmentLeaveDetails.aspx.cs">
+      <DependentUpon>DepartmentLeaveDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DepartmentLeaveDetails.aspx.designer.cs">
+      <DependentUpon>DepartmentLeaveDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmployeeSalary.aspx.cs">
+      <DependentUpon>EmployeeSalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeSalary.aspx.designer.cs">
+      <DependentUpon>EmployeeSalary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmpployeeSalaryList.aspx.cs">
+      <DependentUpon>EmpployeeSalaryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmpployeeSalaryList.aspx.designer.cs">
+      <DependentUpon>EmpployeeSalaryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GeneratePayslip.aspx.cs">
+      <DependentUpon>GeneratePayslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GeneratePayslip.aspx.designer.cs">
+      <DependentUpon>GeneratePayslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LeaveSetting.aspx.cs">
+      <DependentUpon>LeaveSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveSetting.aspx.designer.cs">
+      <DependentUpon>LeaveSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LeaveType.aspx.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveType.aspx.designer.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MasterPayroll.aspx.cs">
+      <DependentUpon>MasterPayroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MasterPayroll.aspx.designer.cs">
+      <DependentUpon>MasterPayroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Payslips.aspx.cs">
+      <DependentUpon>Payslips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Payslips.aspx.designer.cs">
+      <DependentUpon>Payslips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TimeSheet.aspx.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TimeSheet.aspx.designer.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Department.aspx.cs">
       <DependentUpon>Department.aspx</DependentUpon>
@@ -2096,6 +2269,69 @@
     <Compile Include="Admin\Role.aspx.designer.cs">
       <DependentUpon>Role.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminFileUpload.aspx.cs">
+      <DependentUpon>AdminFileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminFileUpload.aspx.designer.cs">
+      <DependentUpon>AdminFileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditAdminDocName.aspx.cs">
+      <DependentUpon>EditAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditAdminDocName.aspx.designer.cs">
+      <DependentUpon>EditAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditEmployeeDocName.aspx.cs">
+      <DependentUpon>EditEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>EditEmployeeDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FetchAdminDocName.aspx.cs">
+      <DependentUpon>FetchAdminDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FetchAdminDocName.aspx.designer.cs">
+      <DependentUpon>FetchAdminDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\fetchempdoc.aspx.cs">
+      <DependentUpon>fetchempdoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\fetchempdoc.aspx.designer.cs">
+      <DependentUpon>fetchempdoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FetchEmployeeDocName.aspx.cs">
+      <DependentUpon>FetchEmployeeDocName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FetchEmployeeDocName.aspx.designer.cs">
+      <DependentUpon>FetchEmployeeDocName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Trainers.aspx.cs">
+      <DependentUpon>Trainers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Trainers.aspx.designer.cs">
+      <DependentUpon>Trainers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TrainersType.aspx.cs">
+      <DependentUpon>TrainersType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TrainersType.aspx.designer.cs">
+      <DependentUpon>TrainersType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TrainingList.aspx.cs">
+      <DependentUpon>TrainingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TrainingList.aspx.designer.cs">
+      <DependentUpon>TrainingList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2109,6 +2345,13 @@
     </Compile>
     <Compile Include="Admin\WebForm3.aspx.designer.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Promotion.aspx.cs">
+      <DependentUpon>Promotion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Promotion.aspx.designer.cs">
+      <DependentUpon>Promotion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\LeaveType.aspx.cs">
       <DependentUpon>LeaveType.aspx</DependentUpon>
@@ -2126,6 +2369,13 @@
     <Compile Include="Models\ExperienceDTO.cs" />
     <Compile Include="Models\OrganizationDTO.cs" />
     <Compile Include="Models\RoleDTO.cs" />
+    <Compile Include="Admin\WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
@@ -11731,8 +11981,8 @@
     <Content Include="assets\plugins\tabler-icons\webfont\fonts\tabler-icons.woff2" />
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.css.map" />
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.scss" />
-    <None Include="packages.config" />
     <Content Include="User\User.Master" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -11746,6 +11996,7 @@
     <Folder Include="NewFolder1\" />
     <Folder Include="NewFolder2\" />
     <Folder Include="uploads\logos\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\plugins\flatpickr\l10n\ar-dz.d.ts" />
@@ -11868,10 +12119,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
 </Project>
