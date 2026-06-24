@@ -67,6 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddLeave.aspx" />
+    <Content Include="Admin\AttendanceAdmin.aspx" />
+    <Content Include="Admin\DepartmentLeaveDetails.aspx" />
+    <Content Include="Admin\EmployeeSalary.aspx" />
+    <Content Include="Admin\EmpployeeSalaryList.aspx" />
+    <Content Include="Admin\GeneratePayslip.aspx" />
+    <Content Include="Admin\LeaveSetting.aspx" />
+    <Content Include="Admin\LeaveType.aspx" />
+    <Content Include="Admin\MasterPayroll.aspx" />
+    <Content Include="Admin\Payslips.aspx" />
+    <Content Include="Admin\TimeSheet.aspx" />
+    <Content Include="Admin\TransactionHistory.aspx" />
     <Content Include="Admin\Department.aspx" />
     <Content Include="Admin\Designation.aspx" />
     <Content Include="Admin\EmployeeDetails.aspx" />
@@ -2008,12 +2020,96 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddLeave.aspx.cs">
+      <DependentUpon>AddLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddLeave.aspx.designer.cs">
+      <DependentUpon>AddLeave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AttendanceAdmin.aspx.cs">
+      <DependentUpon>AttendanceAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AttendanceAdmin.aspx.designer.cs">
+      <DependentUpon>AttendanceAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DepartmentLeaveDetails.aspx.cs">
+      <DependentUpon>DepartmentLeaveDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DepartmentLeaveDetails.aspx.designer.cs">
+      <DependentUpon>DepartmentLeaveDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmployeeSalary.aspx.cs">
+      <DependentUpon>EmployeeSalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeSalary.aspx.designer.cs">
+      <DependentUpon>EmployeeSalary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmpployeeSalaryList.aspx.cs">
+      <DependentUpon>EmpployeeSalaryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmpployeeSalaryList.aspx.designer.cs">
+      <DependentUpon>EmpployeeSalaryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GeneratePayslip.aspx.cs">
+      <DependentUpon>GeneratePayslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GeneratePayslip.aspx.designer.cs">
+      <DependentUpon>GeneratePayslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LeaveSetting.aspx.cs">
+      <DependentUpon>LeaveSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveSetting.aspx.designer.cs">
+      <DependentUpon>LeaveSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LeaveType.aspx.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveType.aspx.designer.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MasterPayroll.aspx.cs">
+      <DependentUpon>MasterPayroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MasterPayroll.aspx.designer.cs">
+      <DependentUpon>MasterPayroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Payslips.aspx.cs">
+      <DependentUpon>Payslips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Payslips.aspx.designer.cs">
+      <DependentUpon>Payslips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TimeSheet.aspx.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TimeSheet.aspx.designer.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Department.aspx.cs">
       <DependentUpon>Department.aspx</DependentUpon>
