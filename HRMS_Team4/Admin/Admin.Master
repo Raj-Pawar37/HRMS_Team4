@@ -151,23 +151,6 @@
                                     </ul>
                                 </li>
 
-                                <li class="submenu">
-                                    <a href="javascript:void(0);">
-                                        <i class="ti ti-users"></i>
-                                        <span>Employees</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-
-                                    <ul>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Department.aspx") %>">Add Department</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Role.aspx") %>">Add Role</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Designation.aspx") %>">Add Designation</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeList.aspx") %>">Employee List</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeGrid.aspx") %>">Employee Grid</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeDetails.aspx") %>">Employee Details</a></li>
-                                    </ul>
-                                </li>
-
 
 
 
@@ -215,7 +198,44 @@
 
                                     </ul>
                                 </li>
-
+                                
+                         <li class="submenu">
+                                        <a href="javascript:void(0);">
+                                            <i class="ti ti-file"></i><span>Master Documents</span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <ul>
+                                            <li class="submenu">
+                                                <a href="javascript:void(0);">Add Master Documents<span class="menu-arrow"></span></a>
+                                                <ul>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/AddAdminDocName.aspx") %>">Add Admin Document</a></li>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/AddEmployeeDocName.aspx") %>">Add Employee Document</a></li>
+                                                </ul>
+                                            </li>
+        
+                                            <li class="submenu">
+                                                <a href="javascript:void(0);">Master Document List<span class="menu-arrow"></span></a>
+                                                <ul>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/FetchAdminDocName.aspx") %>">Admin Document List</a></li>
+                                                    <li><a href="<%= ResolveUrl("~/Admin/FetchEmployeeDocName.aspx") %>">Employee Document List</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-file-upload"></i><span>Documents</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+                                    <ul>
+        
+                <li><a href="<%= ResolveUrl("~/Admin/AdminFileUpload.aspx") %>">Upload Document</a></li>
+                <li><a href="<%= ResolveUrl("~/Admin/fetchempdoc.aspx") %>">Document List</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+                               
 
 
 
