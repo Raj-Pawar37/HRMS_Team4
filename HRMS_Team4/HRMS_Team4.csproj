@@ -79,8 +79,14 @@
     <Content Include="Admin\Payslips.aspx" />
     <Content Include="Admin\TimeSheet.aspx" />
     <Content Include="Admin\TransactionHistory.aspx" />
+    <Content Include="Admin\Department.aspx" />
+    <Content Include="Admin\Designation.aspx" />
+    <Content Include="Admin\EmployeeDetails.aspx" />
+    <Content Include="Admin\EmployeeList.aspx" />
+    <Content Include="Admin\Role.aspx" />
     <Content Include="Admin\WebForm2.aspx" />
     <Content Include="Admin\WebForm3.aspx" />
+    <Content Include="Admin\LeaveType.aspx" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
@@ -2010,6 +2016,7 @@
     <Content Include="assets\scss\main.css" />
     <Content Include="assets\scss\pages\deals-dashboard.css" />
     <Content Include="Timesheet.aspx" />
+    <Content Include="uploads\user\man1.jpg" />
     <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2105,6 +2112,41 @@
     <Compile Include="Admin\TransactionHistory.aspx.designer.cs">
       <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Department.aspx.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Department.aspx.designer.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designation.aspx.cs">
+      <DependentUpon>Designation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designation.aspx.designer.cs">
+      <DependentUpon>Designation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Role.aspx.cs">
+      <DependentUpon>Role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Role.aspx.designer.cs">
+      <DependentUpon>Role.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2119,6 +2161,21 @@
     <Compile Include="Admin\WebForm3.aspx.designer.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LeaveType.aspx.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveType.aspx.designer.cs">
+      <DependentUpon>LeaveType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DepartmentDTO.cs" />
+    <Compile Include="Models\DesignationDTO.cs" />
+    <Compile Include="Models\EducationDetailsDTO.cs" />
+    <Compile Include="Models\EmployeeBankDetailsDTO.cs" />
+    <Compile Include="Models\EmployeeDTO.cs" />
+    <Compile Include="Models\EmployeeFamilyDetailsDTO.cs" />
+    <Compile Include="Models\ExperienceDTO.cs" />
+    <Compile Include="Models\RoleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Timesheet.aspx.cs">
       <DependentUpon>Timesheet.aspx</DependentUpon>

@@ -151,6 +151,23 @@
                                     </ul>
                                 </li>
 
+                                <li class="submenu">
+                                    <a href="javascript:void(0);">
+                                        <i class="ti ti-users"></i>
+                                        <span>Employees</span>
+                                        <span class="menu-arrow"></span>
+                                    </a>
+
+                                    <ul>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Department.aspx") %>">Add Department</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Role.aspx") %>">Add Role</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/Designation.aspx") %>">Add Designation</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeList.aspx") %>">Employee List</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeGrid.aspx") %>">Employee Grid</a></li>
+                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeDetails.aspx") %>">Employee Details</a></li>
+                                    </ul>
+                                </li>
+
 
 
 

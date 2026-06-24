@@ -122,7 +122,7 @@ namespace HRMS_Team4.Admin
          try
             {
                 SqlCommand cmd = new SqlCommand("exec sp_MasterLeaveTypes_Search '"+leave+"'  ", con);
-               
+
                 SqlDataReader dr= cmd.ExecuteReader();
                 GridView1.DataSource = dr;
                 GridView1.DataBind();
