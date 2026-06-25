@@ -1,0 +1,235 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manager.master.cs" Inherits="HRMS_Team4.Manager.Manager" %>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <%--<link href="../assets/css/main.css" rel="stylesheet" />--%>
+
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/feather.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/tabler-icons/webfont/tabler-icons.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/select2/css/select2.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/font-awesome.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/bootstrap-datetimepicker.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/assets/css/style.css") %>" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <%--CDN for the data tables--%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+
+
+
+
+
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="sidebar" id="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <a href="index.html" class="logo logo-normal">
+                    <img src="<%= ResolveUrl("~/assets/img/logo.svg") %>" />
+                </a>
+                <a href="index.html" class="logo-small">
+                    <img src="<%= ResolveUrl("~/assets/img/logo-small.svg") %>" />
+                </a>
+                <a href="index.html" class="dark-logo">
+                    <img src="<%= ResolveUrl("~/assets/img/logo-white.svg") %>" />
+                </a>
+            </div>
+            <!-- /Logo -->
+            <div class="modern-profile p-3 pb-0">
+                <div class="text-center rounded bg-light p-3 mb-4 user-profile">
+                    <div class="avatar avatar-lg online mb-3">
+                        <img src="<%= ResolveUrl("~/assets/img/profiles/avatar-02.jpg") %>" />
+                    </div>
+                    <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+                    <p class="fs-10">System Admin</p>
+                </div>
+                <div class="sidebar-nav mb-3">
+                    <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified bg-transparent"
+                        role="tablist">
+                        <li class="nav-item"><a class="nav-link active border-0" href="#">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link border-0" href="chat.html">Chats</a></li>
+                        <li class="nav-item"><a class="nav-link border-0" href="email.html">Inbox</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-header p-3 pb-0 pt-2">
+                <div class="text-center rounded bg-light p-2 mb-4 sidebar-profile d-flex align-items-center">
+                    <div class="avatar avatar-md onlin">
+                        <img src="<%= ResolveUrl("~/assets/img/profiles/avatar-02.jpg") %>" />
+                    </div>
+                    <div class="text-start sidebar-profile-info ms-2">
+                        <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+                        <p class="fs-10">System Admin</p>
+                    </div>
+                </div>
+                <div class="input-group input-group-flat d-inline-flex mb-4">
+                    <span class="input-icon-addon">
+                        <i class="ti ti-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search in HRMS">
+                    <span class="input-group-text">
+                        <kbd>CTRL + / </kbd>
+                    </span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between menu-item mb-3">
+                    <div class="me-3">
+                        <a href="calendar.html" class="btn btn-menubar">
+                            <i class="ti ti-layout-grid-remove"></i>
+                        </a>
+                    </div>
+                    <div class="me-3">
+                        <a href="chat.html" class="btn btn-menubar position-relative">
+                            <i class="ti ti-brand-hipchat"></i>
+                            <span
+                                class="badge bg-info rounded-pill d-flex align-items-center justify-content-center header-badge">5</span>
+                        </a>
+                    </div>
+                    <div class="me-3 notification-item">
+                        <a href="activity.html" class="btn btn-menubar position-relative me-1">
+                            <i class="ti ti-bell"></i>
+                            <span class="notification-status-dot"></span>
+                        </a>
+                    </div>
+                    <div class="me-0">
+                        <a href="email.html" class="btn btn-menubar">
+                            <i class="ti ti-message"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+
+
+                    <%--SIdE MAINU START FROM HERE--%>
+
+                    <ul>
+                        <li class="menu-title"><span>MAIN MENU</span></li>
+                        <li>
+
+
+
+
+                            <%--Projects SUBMENU--%>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-smart-home"></i><span>Projects</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="<%= ResolveUrl("~/Manager/Project.aspx") %>">Project</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/Task.aspx") %>">Task</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TaskBoard.aspx") %>">Taskboard</a></li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
+                        <%--Leaves SUBMENU--%>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-smart-home"></i><span>Tickets</span>
+                                <span class="menu-arrow"></span>
+
+                            </a>
+                            <ul>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Approval</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Timsheet Approval</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Allocation</a></li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
+                        <%--Tickets SUBMENU--%>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-smart-home"></i><span>Tickets</span>
+                                <span class="menu-arrow"></span>
+
+                            </a>
+                            <ul>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Ticket Assignment</a></li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
+
+
+                        <%--LOGOUT SUBMENU--%>
+
+                        <li>
+                            <asp:LinkButton ID="btnLogout"
+                                runat="server"
+                                OnClick="btnLogout_Click">
+                                <i class="ti ti-logout text-danger"></i>
+                                <span class="text-danger">Logout</span>
+                            </asp:LinkButton>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-wrapper">
+
+            <div class="page-wrapper">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+        </div>
+
+
+    </form>
+
+    <!-- JS files -->
+    <script src="<%= ResolveUrl("~/assets/js/bootstrap.bundle.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/feather.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/jquery.slimscroll.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/js/moment.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/daterangepicker/daterangepicker.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/js/bootstrap-datetimepicker.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/plugins/select2/js/select2.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/apexchart/apexcharts.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/apexchart/chart-data.js") %>"></script>
+
+    <script src="<%= ResolveUrl("~/assets/js/theme-script.js") %>"></script>
+    <%--<script src="<%= ResolveUrl("~/assets/js/theme-colorpicker.js") %>"></script>--%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="<%= ResolveUrl("~/assets/js/script.js") %>"></script>
+
+</body>
+</html>
