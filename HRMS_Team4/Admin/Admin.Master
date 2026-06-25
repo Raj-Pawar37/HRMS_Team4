@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+    <script src="<%= ResolveUrl("~/assets/plugins/chartjs/chart.min.js") %>"></script>
 
 
 
@@ -208,11 +209,24 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Admin/Project.aspx") %>">Add Document Name(Admin)</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/Task.aspx") %>">Add Document Name(Admin)</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Admin DocumentList</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Employee DocumentList</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/AddAdminDocName.aspx") %>">Add Document Name(Admin)</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/AddEmployeDocName.aspx") %>">Add Document Name(Employee)</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/FetchAdminDocName.aspx") %>">Admin DocumentList</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/FetchEmployeeDocName.aspx") %>">Employee DocumentList</a></li>
 
+                            </ul>
+                        </li>
+
+
+                        <%--Documents SUBMENU--%>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-smart-home"></i><span>Documents</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="<%= ResolveUrl("~/Admin/AdminFileUpload.aspx") %>">Upload Document</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/EditAdminDocName.aspx") %>">Documment List</a></li>
                             </ul>
                         </li>
 
@@ -239,7 +253,7 @@
                         <%--Reports SUBMENU--%>
                         <li class="submenu">
                             <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Master Documents</span>
+                                <i class="ti ti-smart-home"></i><span>Reports</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
