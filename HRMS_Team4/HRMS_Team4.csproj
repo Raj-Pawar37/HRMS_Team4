@@ -2480,6 +2480,13 @@
       <DependentUpon>WebForm4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\MyTickets.aspx.cs">
       <DependentUpon>MyTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -12093,6 +12100,7 @@
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.scss" />
     <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
+    <Content Include="User\Attendance.aspx" />
     <Content Include="User\User.Master" />
     <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
