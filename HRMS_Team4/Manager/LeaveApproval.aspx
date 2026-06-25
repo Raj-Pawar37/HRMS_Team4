@@ -90,14 +90,14 @@ $(function () {
     CssClass="btn btn-sm btn-success"
     CommandName="Approve"
     CommandArgument='<%# Eval("LeaveRequestId") %>'
-    Enabled='<%# Eval("Status").ToString() == "Pending" %>' />
+    />
 
 <asp:Button ID="btnReject" runat="server"
     Text="Reject"
     CssClass="btn btn-sm btn-danger"
     CommandName="Reject"
     CommandArgument='<%# Eval("LeaveRequestId") %>'
-    Enabled='<%# Eval("Status").ToString() == "Pending" %>' />
+     />
 
                                 </div>
 
