@@ -63,7 +63,7 @@ namespace HRMS_Team4.Admin
                 else
                 {
                     cmd = new SqlCommand("SP_Resignation_Update", con);
-                    cmd.Parameters.AddWithValue( "@ResignationId",  Convert.ToInt32(hfResignationId.Value));
+                    cmd.Parameters.AddWithValue("@ResignationId", Convert.ToInt32(hfResignationId.Value));
                 }
 
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -72,11 +72,11 @@ namespace HRMS_Team4.Admin
 
                 cmd.Parameters.AddWithValue("@DepartmentId", Convert.ToInt32(txtDepartmentID.Text));
 
-                cmd.Parameters.AddWithValue( "@NoticeDate", Convert.ToDateTime(txtNoticeDate.Text));
+                cmd.Parameters.AddWithValue("@NoticeDate", Convert.ToDateTime(txtNoticeDate.Text));
 
-                cmd.Parameters.AddWithValue( "@ResignDate", Convert.ToDateTime(txtResignDate.Text));
+                cmd.Parameters.AddWithValue("@ResignDate", Convert.ToDateTime(txtResignDate.Text));
 
-                cmd.Parameters.AddWithValue(  "@Reason", txtReason.Text);
+                cmd.Parameters.AddWithValue("@Reason", txtReason.Text);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -95,7 +95,7 @@ namespace HRMS_Team4.Admin
       ? "Resignation Added Successfully"
       : "Resignation Updated Successfully";
 
-            ScriptManager.RegisterStartupScript(this,GetType(),  "msg", $"alert('{msg}');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "msg", $"alert('{msg}');", true);
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -133,11 +133,11 @@ namespace HRMS_Team4.Admin
             using (SqlConnection con =
                 new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(  "SELECT * FROM Resignation WHERE ResignationId=@ResignationId",  con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Resignation WHERE ResignationId=@ResignationId", con);
 
-                cmd.Parameters.AddWithValue( "@ResignationId",  resignationId);
+                cmd.Parameters.AddWithValue("@ResignationId", resignationId);
 
-                DataTable dt =new DataTable();
+                DataTable dt = new DataTable();
 
                 new SqlDataAdapter(cmd).Fill(dt);
 
@@ -149,13 +149,13 @@ namespace HRMS_Team4.Admin
 
                     txtDepartmentID.Text = dt.Rows[0]["DepartmentId"].ToString();
 
-                    txtNoticeDate.Text =Convert.ToDateTime(dt.Rows[0]["NoticeDate"])  .ToString("yyyy-MM-dd");
+                    txtNoticeDate.Text = Convert.ToDateTime(dt.Rows[0]["NoticeDate"]).ToString("yyyy-MM-dd");
 
-                    txtResignDate.Text =  Convert.ToDateTime(dt.Rows[0]["ResignDate"])  .ToString("yyyy-MM-dd");
+                    txtResignDate.Text = Convert.ToDateTime(dt.Rows[0]["ResignDate"]).ToString("yyyy-MM-dd");
 
                     txtReason.Text = dt.Rows[0]["Reason"].ToString();
 
-                    ScriptManager.RegisterStartupScript( this,  GetType(), "ShowModal", "new bootstrap.Modal(document.getElementById('resignationModal')).show();", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "openModal();", true);
                 }
             }
         }

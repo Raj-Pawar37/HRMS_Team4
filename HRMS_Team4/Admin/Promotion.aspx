@@ -62,15 +62,12 @@
             </div>
 
             <div class="modal-body">
-                <asp:HiddenField ID="hfPromotionId" runat="server" />
+            <asp:HiddenField ID="hfPromotionId" runat="server" />
 
               <div class="mb-3">
-    <label class="form-label">Employee Name</label>
-    <asp:TextBox ID="txtEmployeeName" runat="server" CssClass="form-control" 
-        placeholder="Enter Employee Name" AutoPostBack="true" 
-        OnTextChanged="txtEmployeeName_TextChanged">
-    </asp:TextBox>
-    <asp:HiddenField ID="hfUserID" runat="server" />
+   <label class="form-label">User ID</label>
+<asp:TextBox ID="txtUserID" runat="server" CssClass="form-control"> </asp:TextBox>
+    
     <small id="empMsg" class="text-danger"></small>
 </div>
 
@@ -104,8 +101,7 @@
     </div>  
 </div>  
    <script>
-       function openModal()
-       {
+       function openModal() {
            document.getElementById('promotionModalLabel').innerText = 'Add Promotion';
 
            var existingModal = bootstrap.Modal.getInstance(document.getElementById('promotionModal'));

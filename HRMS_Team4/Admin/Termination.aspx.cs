@@ -95,14 +95,102 @@ namespace HRMS_Team4.Admin
             LoadTerminations();
         }
 
+
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            // Your existing edit code
+            LinkButton btn = (LinkButton)sender;
+            int id = Convert.ToInt32(btn.CommandArgument);
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT * FROM Termination WHERE TerminationId=@Id",
+                    con);
+
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                con.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    hfTerminationId.Value = dr["TerminationId"].ToString();
+
+                    string userId = dr["UserID"].ToString();
+
+                    if (ddlEditEmployee.Items.FindByValue(userId) != null)
+                    {
+                        ddlEditEmployee.SelectedValue = userId;
+                    }
+
+                    txtEditTerminationType.Text = dr["TerminationType"].ToString();
+
+                    txtEditNoticeDate.Text =
+                        Convert.ToDateTime(dr["NoticeDate"])
+                        .ToString("yyyy-MM-dd");
+
+                    txtEditResignDate.Text =
+                        Convert.ToDateTime(dr["ResignDate"])
+                        .ToString("yyyy-MM-dd");
+
+                    txtEditReason.Text = dr["Reason"].ToString();
+                }
+
+                dr.Close();
+            }
+
+            ScriptManager.RegisterStartupScript(
+                this,
+                GetType(),
+                "popup",
+                "var myModal = new bootstrap.Modal(document.getElementById('editTerminationModal')); myModal.show();",
+                true);
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Your existing update code
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand(
+                    @"UPDATE Termination
+              SET UserID = @UserID,
+                  TerminationType = @TerminationType,
+                  NoticeDate = @NoticeDate,
+                  ResignDate = @ResignDate,
+                  Reason = @Reason
+              WHERE TerminationId = @TerminationId",
+                    con);
+
+                cmd.Parameters.AddWithValue(
+                    "@TerminationId",
+                    hfTerminationId.Value);
+
+                cmd.Parameters.AddWithValue(
+                    "@UserID",
+                    ddlEditEmployee.SelectedValue);
+
+                cmd.Parameters.AddWithValue(
+                    "@TerminationType",
+                    txtEditTerminationType.Text.Trim());
+
+                cmd.Parameters.AddWithValue(
+                    "@NoticeDate",
+                    Convert.ToDateTime(txtEditNoticeDate.Text));
+
+                cmd.Parameters.AddWithValue(
+                    "@ResignDate",
+                    Convert.ToDateTime(txtEditResignDate.Text));
+
+                cmd.Parameters.AddWithValue(
+                    "@Reason",
+                    txtEditReason.Text.Trim());
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            LoadTerminations();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -126,4 +214,3 @@ namespace HRMS_Team4.Admin
         }
     }
 }
-

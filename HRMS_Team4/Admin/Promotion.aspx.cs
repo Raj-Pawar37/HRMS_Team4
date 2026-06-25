@@ -56,10 +56,10 @@ namespace HRMS_Team4.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEmployeeName.Text))
+            if (string.IsNullOrWhiteSpace(txtUserID.Text))
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "msg",
-                    "alert('Please enter Employee Name.');", true);
+                    "alert('Please enter User ID.');", true);
                 return;
             }
 
@@ -79,8 +79,7 @@ namespace HRMS_Team4.Admin
                 }
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserID", Convert.ToInt32(hfUserID.Value));
-                cmd.Parameters.AddWithValue("@EmployeeName", txtEmployeeName.Text.Trim());
+                cmd.Parameters.AddWithValue("@UserID", Convert.ToInt32(txtUserID.Text));
                 cmd.Parameters.AddWithValue("@DesignationFrom", ddlDesignationFrom.SelectedValue);
                 cmd.Parameters.AddWithValue("@DesignationTo", ddlDesignationTo.SelectedValue);
                 cmd.Parameters.AddWithValue("@Date", txtPromotionDate.Text);
@@ -93,12 +92,7 @@ namespace HRMS_Team4.Admin
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "msg",
                     $"alert('{msg}');", true);
-                if (hfUserID.Value == "0")
-                {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "msg",
-                        "alert('Employee not found in User table');", true);
-                    return;
-                }
+
             }
 
             LoadPromotion();
@@ -115,7 +109,7 @@ namespace HRMS_Team4.Admin
                 EditPromotion(promotionId);
         }
 
-      
+
         private void DeletePromotion(int promotionId)
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -131,7 +125,7 @@ namespace HRMS_Team4.Admin
             LoadPromotion();
         }
 
-      
+
         private void EditPromotion(int promotionId)
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -149,17 +143,17 @@ namespace HRMS_Team4.Admin
                     string desigTo = dt.Rows[0]["DesignationTo"].ToString();
 
                     hfPromotionId.Value = dt.Rows[0]["PromotionId"].ToString();
-                    txtEmployeeName.Text = dt.Rows[0]["EmployeeName"].ToString();
+                    txtUserID.Text = dt.Rows[0]["UserID"].ToString();
                     txtPromotionDate.Text = Convert.ToDateTime(dt.Rows[0]["Date"]).ToString("yyyy-MM-dd");
 
-                   
+
                     if (ddlDesignationFrom.Items.FindByValue(desigFrom) != null)
                         ddlDesignationFrom.SelectedValue = desigFrom;
 
                     if (ddlDesignationTo.Items.FindByValue(desigTo) != null)
                         ddlDesignationTo.SelectedValue = desigTo;
 
-                 
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal",
                         @"setTimeout(function() {
                             document.getElementById('promotionModalLabel').innerText = 'Edit Promotion';
@@ -171,7 +165,7 @@ namespace HRMS_Team4.Admin
             }
         }
 
-       
+
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -186,30 +180,6 @@ namespace HRMS_Team4.Admin
 
                 GridPromotion.DataSource = dt.DefaultView;
                 GridPromotion.DataBind();
-            }
-        }
-
-
-        protected void txtEmployeeName_TextChanged(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                SqlCommand cmd = new SqlCommand(
-                    @"SELECT TOP 1 UserId
-              FROM [User]
-              WHERE FirstName + ' ' + LastName = @Name
-                 OR FirstName = @Name",
-                    con);
-
-                cmd.Parameters.AddWithValue("@Name", txtEmployeeName.Text.Trim());
-
-                con.Open();
-
-                object result = cmd.ExecuteScalar();
-
-                hfUserID.Value = (result != null)
-                    ? result.ToString()
-                    : "0";
             }
         }
     }
