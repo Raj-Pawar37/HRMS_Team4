@@ -78,13 +78,13 @@ namespace HRMS_Team4.Admin
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// txtRole control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
 
         /// <summary>
         /// txtPhone control.
@@ -94,6 +94,15 @@ namespace HRMS_Team4.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        /// <summary>
+        /// fuProfilePicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProfilePicture;
 
         /// <summary>
         /// txtEmail control.
@@ -159,13 +168,13 @@ namespace HRMS_Team4.Admin
         protected global::System.Web.UI.WebControls.TextBox txtEditLastName;
 
         /// <summary>
-        /// txtEditRole control.
+        /// ddlEditRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditRole;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEditRole;
 
         /// <summary>
         /// txtEditPhone control.
@@ -175,6 +184,24 @@ namespace HRMS_Team4.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEditPhone;
+
+        /// <summary>
+        /// fuEditProfilePicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuEditProfilePicture;
+
+        /// <summary>
+        /// hfOldProfilePicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfOldProfilePicture;
 
         /// <summary>
         /// txtEditEmail control.

@@ -9,8 +9,7 @@ namespace HRMS_Team4.Admin
 {
     public partial class TrainingList : System.Web.UI.Page
     {
-        string conn = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
-
+        string conn = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +21,6 @@ namespace HRMS_Team4.Admin
             }
         }
 
-        // Added a default parameter so it loads "Recently Added" automatically
         private void BindTraining(string filter = "Recently Added")
         {
             try

@@ -2,26 +2,73 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Web.UI.WebControls;
 
 namespace HRMS_Team4.Admin
 {
     public partial class Trainers : System.Web.UI.Page
     {
-        string conn = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
-
+        string conn = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            Page.Form.Enctype = "multipart/form-data";
 
             if (!IsPostBack)
             {
+                BindRoles(); // CRITICAL: This populates the dropdown!
                 BindTrainers();
             }
         }
 
-        // 1. Update your BindTrainers method to look exactly like this:
+        private void BindRoles()
+        {
+            ddlRole.Items.Clear();
+            ddlEditRole.Items.Clear();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conn))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_Role_GetDropdown", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            sda.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                ddlRole.DataSource = dt;
+                                ddlRole.DataTextField = "RoleName";
+                                ddlRole.DataValueField = "RoleName";
+                                ddlRole.DataBind();
+
+                                ddlEditRole.DataSource = dt;
+                                ddlEditRole.DataTextField = "RoleName";
+                                ddlEditRole.DataValueField = "RoleName";
+                                ddlEditRole.DataBind();
+                            }
+                            else
+                            {
+                                ddlRole.Items.Add(new ListItem("Table is empty!", ""));
+                                ddlEditRole.Items.Add(new ListItem("Table is empty!", ""));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ddlRole.Items.Add(new ListItem("ERROR: " + ex.Message, ""));
+                ddlEditRole.Items.Add(new ListItem("ERROR: " + ex.Message, ""));
+            }
+
+            ddlRole.Items.Insert(0, new ListItem("-- Select Role --", ""));
+            ddlEditRole.Items.Insert(0, new ListItem("-- Select Role --", ""));
+        }
+
         private void BindTrainers(string filter = "Recently Added")
         {
             using (SqlConnection con = new SqlConnection(conn))
@@ -29,7 +76,7 @@ namespace HRMS_Team4.Admin
                 using (SqlCommand cmd = new SqlCommand("sp_Trainers_GetAll", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Filter", filter); // Pass the filter to SQL
+                    cmd.Parameters.AddWithValue("@Filter", filter);
 
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
@@ -42,12 +89,10 @@ namespace HRMS_Team4.Admin
             }
         }
 
-        // 2. Add this Click Event anywhere inside your Trainers class:
         protected void SortFilter_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
             string selectedFilter = btn.CommandArgument;
-
             lblSortText.InnerText = "Sort By : " + selectedFilter;
             BindTrainers(selectedFilter);
         }
@@ -58,6 +103,17 @@ namespace HRMS_Team4.Admin
             {
                 string cleanPhone = txtPhone.Text.Replace("-", "").Replace("(", "").Replace(")", "").Replace(" ", "");
 
+                string profilePicPath = "";
+                if (fuProfilePicture.HasFile)
+                {
+                    string fileName = DateTime.Now.ToString("yyyyMMddHHmmss_") + Path.GetFileName(fuProfilePicture.PostedFile.FileName);
+                    string folderPath = Server.MapPath("~/Uploads/Trainers/");
+                    if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+                    fuProfilePicture.SaveAs(folderPath + fileName);
+                    profilePicPath = "~/Uploads/Trainers/" + fileName;
+                }
+
                 using (SqlConnection con = new SqlConnection(conn))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_Trainer_Insert", con))
@@ -65,12 +121,12 @@ namespace HRMS_Team4.Admin
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                         cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                        cmd.Parameters.AddWithValue("@Role", txtRole.Text);
+                        cmd.Parameters.AddWithValue("@Role", ddlRole.SelectedValue); // READS FROM DROPDOWN!
                         cmd.Parameters.AddWithValue("@Phone", cleanPhone);
                         cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                         cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
                         cmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
-                        cmd.Parameters.AddWithValue("@ProfilePicture", "");
+                        cmd.Parameters.AddWithValue("@ProfilePicture", profilePicPath);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -78,7 +134,7 @@ namespace HRMS_Team4.Admin
                 }
 
                 BindTrainers();
-                txtFirstName.Text = ""; txtLastName.Text = ""; txtRole.Text = "";
+                txtFirstName.Text = ""; txtLastName.Text = ""; ddlRole.SelectedIndex = 0;
                 txtPhone.Text = ""; txtEmail.Text = ""; txtDescription.Text = ""; ddlStatus.SelectedIndex = 0;
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('SUCCESS! Trainer was added.'); }, 100);", true);
             }
@@ -107,7 +163,7 @@ namespace HRMS_Team4.Admin
                         }
                     }
                     BindTrainers();
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('DELETED! Trainer was permanently removed.'); }, 100);", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('DELETED!'); }, 100);", true);
                 }
                 catch (Exception ex)
                 {
@@ -131,11 +187,18 @@ namespace HRMS_Team4.Admin
                             {
                                 txtEditFirstName.Text = dr["FirstName"].ToString();
                                 txtEditLastName.Text = dr["LastName"].ToString();
-                                txtEditRole.Text = dr["Role"].ToString();
+
+                                string roleValue = dr["Role"].ToString();
+                                if (ddlEditRole.Items.FindByValue(roleValue) != null)
+                                {
+                                    ddlEditRole.SelectedValue = roleValue;
+                                }
+
                                 txtEditPhone.Text = dr["Phone"].ToString();
                                 txtEditEmail.Text = dr["Email"].ToString();
                                 txtEditDescription.Text = dr["Description"].ToString();
                                 ddlEditStatus.SelectedValue = dr["Status"].ToString();
+                                hfOldProfilePicture.Value = dr["ProfilePicture"].ToString();
                             }
                         }
                     }
@@ -150,6 +213,17 @@ namespace HRMS_Team4.Admin
             {
                 string cleanEditPhone = txtEditPhone.Text.Replace("-", "").Replace("(", "").Replace(")", "").Replace(" ", "");
 
+                string profilePicPath = hfOldProfilePicture.Value;
+                if (fuEditProfilePicture.HasFile)
+                {
+                    string fileName = DateTime.Now.ToString("yyyyMMddHHmmss_") + Path.GetFileName(fuEditProfilePicture.PostedFile.FileName);
+                    string folderPath = Server.MapPath("~/Uploads/Trainers/");
+                    if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+                    fuEditProfilePicture.SaveAs(folderPath + fileName);
+                    profilePicPath = "~/Uploads/Trainers/" + fileName;
+                }
+
                 using (SqlConnection con = new SqlConnection(conn))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_Trainer_Update", con))
@@ -157,12 +231,13 @@ namespace HRMS_Team4.Admin
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@FirstName", txtEditFirstName.Text);
                         cmd.Parameters.AddWithValue("@LastName", txtEditLastName.Text);
-                        cmd.Parameters.AddWithValue("@Role", txtEditRole.Text);
+                        cmd.Parameters.AddWithValue("@Role", ddlEditRole.SelectedValue); // READS FROM DROPDOWN!
                         cmd.Parameters.AddWithValue("@Phone", cleanEditPhone);
                         cmd.Parameters.AddWithValue("@Email", txtEditEmail.Text);
                         cmd.Parameters.AddWithValue("@Description", txtEditDescription.Text);
                         cmd.Parameters.AddWithValue("@Status", ddlEditStatus.SelectedValue);
                         cmd.Parameters.AddWithValue("@TrainerId", hfEditId.Value);
+                        cmd.Parameters.AddWithValue("@ProfilePicture", profilePicPath);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -170,7 +245,7 @@ namespace HRMS_Team4.Admin
                 }
 
                 BindTrainers();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('UPDATED! Trainer was successfully updated.'); }, 100);", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "setTimeout(function(){ alert('UPDATED!'); }, 100);", true);
             }
             catch (Exception ex)
             {

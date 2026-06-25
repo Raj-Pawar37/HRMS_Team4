@@ -252,19 +252,19 @@
        </div>
         </div>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-    const selectAll = document.getElementById("select-all");
+            const selectAll = document.getElementById("select-all");
 
-    if (selectAll) {
-        selectAll.addEventListener("change", function () {
+            if (selectAll) {
+                selectAll.addEventListener("change", function () {
 
-            document.querySelectorAll(".row-checkbox")
-                .forEach(cb => cb.checked = this.checked);
+                    document.querySelectorAll(".row-checkbox")
+                        .forEach(cb => cb.checked = this.checked);
+
+                });
+            }
 
         });
-    }
-
-});
     </script>
 </asp:Content>
