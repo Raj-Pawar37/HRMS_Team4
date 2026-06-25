@@ -14,23 +14,76 @@ namespace HRMS_Team4.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
-
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
 
             if (!IsPostBack)
             {
+                Attendance_Admin_TodaySummary();
                 BindDepartment();
                 BindGrid();
                 LoadCount();
             }
         }
 
+
+        public void Attendance_Admin_TodaySummary()
+        {
+            SqlCommand cmd = new SqlCommand("SP_Attendance_Admin_TodaySummary", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                lblTotalEmployee.Text = dr["EmployeeCount"].ToString();
+                lblPresent.Text = dr["Present"].ToString();
+                lblLate.Text = dr["Late"].ToString();
+                lblPermission.Text = dr["Permission"].ToString();
+                lblAbsent.Text = dr["Absent"].ToString();
+            }
+
+            dr.Close();
+        }
+
+
+        protected void FilterChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+
         public void BindGrid()
         {
-            SqlDataAdapter da = new SqlDataAdapter(
-                "sp_Attendance_Select", con);
+            SqlDataAdapter da = new SqlDataAdapter("sp_Attendance_Select", con);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            // Start Date
+            if (string.IsNullOrWhiteSpace(txtStartDate.Text))
+                da.SelectCommand.Parameters.AddWithValue("@StartDate", DBNull.Value);
+            else
+                da.SelectCommand.Parameters.AddWithValue("@StartDate", Convert.ToDateTime(txtStartDate.Text));
+
+            // End Date
+            if (string.IsNullOrWhiteSpace(txtEndDate.Text))
+                da.SelectCommand.Parameters.AddWithValue("@EndDate", DBNull.Value);
+            else
+                da.SelectCommand.Parameters.AddWithValue("@EndDate", Convert.ToDateTime(txtEndDate.Text));
+
+            // Department
+            if (ddlDepartment.SelectedValue == "0")
+                da.SelectCommand.Parameters.AddWithValue("@DepartmentId", DBNull.Value);
+            else
+                da.SelectCommand.Parameters.AddWithValue("@DepartmentId", Convert.ToInt32(ddlDepartment.SelectedValue));
+
+            // Status
+            if (ddlStatus.SelectedValue == "All")
+                da.SelectCommand.Parameters.AddWithValue("@Status", DBNull.Value);
+            else
+                da.SelectCommand.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
+
+
+
 
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -60,7 +113,8 @@ namespace HRMS_Team4.Admin
             ddlDepartment.DataValueField = "DepartmentId";
             ddlDepartment.DataBind();
 
-            ddlDepartment.Items.Insert(0, "All Departments");
+            //ddlDepartment.Items.Insert(0, "All Departments");
+            ddlDepartment.Items.Insert(0, new ListItem("All Departments", "0"));
         }
 
         public void LoadCount()
