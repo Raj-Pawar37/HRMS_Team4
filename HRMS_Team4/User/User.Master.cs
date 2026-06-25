@@ -13,5 +13,16 @@ namespace HRMS_Team4.User
         {
 
         }
+
+
+
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();      // Remove all session values
+            Session.Abandon();    // Destroy session
+
+            Response.Redirect("~/Account/Login.aspx");
+        }
     }
 }

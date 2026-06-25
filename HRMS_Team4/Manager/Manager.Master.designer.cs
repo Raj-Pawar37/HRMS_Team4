@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HRMS_Team4.User
+namespace HRMS_Team4.Manager
 {
 
 
-    public partial class User
+    public partial class Manager
     {
 
         /// <summary>

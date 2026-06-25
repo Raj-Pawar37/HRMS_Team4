@@ -1,6 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="HRMS_Team4.User.User" %>
-
-<!DOCTYPE html>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manager.master.cs" Inherits="HRMS_Team4.Manager.Manager" %>
 
 <html>
 <head runat="server">
@@ -126,31 +124,16 @@
 
 
 
-                            <%--DashBoard SUBMENU--%>
+                            <%--Projects SUBMENU--%>
                         <li class="submenu">
                             <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Dashboard</span><span
-                                    class="badge badge-danger fs-10 fw-medium text-white p-1">Hot</span><span
-                                        class="menu-arrow"></span>
-                            </a>
-                            <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/Project.aspx") %>">Employee Dasboard</a></li>
-                            </ul>
-                        </li>
-
-
-
-
-
-                        <%--Employees SUBMENU--%>
-                        <li class="submenu">
-                            <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Employees</span>
+                                <i class="ti ti-smart-home"></i><span>Projects</span>
                                 <span class="menu-arrow"></span>
-
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/User/UserProfile.aspx") %>">User Profile</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/Project.aspx") %>">Project</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/Task.aspx") %>">Task</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TaskBoard.aspx") %>">Taskboard</a></li>
 
                             </ul>
                         </li>
@@ -159,69 +142,17 @@
 
 
 
-                        <%--Attendance SUBMENU--%>
+                        <%--Leaves SUBMENU--%>
                         <li class="submenu">
                             <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Attendance</span>
+                                <i class="ti ti-smart-home"></i><span>Tickets</span>
                                 <span class="menu-arrow"></span>
 
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Apply Leave</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Details</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">User Profile</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Attendance(Emplpoyee)</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">TimSheet</a></li>
-
-                            </ul>
-                        </li>
-
-
-
-                        <%--Payroll SUBMENU--%>
-                        <li class="submenu">
-                            <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Payroll</span>
-                                <span class="menu-arrow"></span>
-
-                            </a>
-                            <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">PaySlip</a></li>
-
-                            </ul>
-                        </li>
-
-
-
-
-
-
-                        <%--Payroll SUBMENU--%>
-                        <li class="submenu">
-                            <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Calender</span>
-                                <span class="menu-arrow"></span>
-
-                            </a>
-                            <ul>
-                                <li><a href="<%= ResolveUrl("~/User/TicketAssignment.aspx") %>">Events</a></li>
-
-                            </ul>
-                        </li>
-
-
-
-
-                        <%--Document SUBMENU--%>
-                        <li class="submenu">
-                            <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Documents</span>
-                                <span class="menu-arrow"></span>
-
-                            </a>
-                            <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">My Document</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Upload Document</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Approval</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Timsheet Approval</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Allocation</a></li>
 
                             </ul>
                         </li>
@@ -238,11 +169,12 @@
 
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Raise Tickets</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">My Tickets</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Ticket Assignment</a></li>
 
                             </ul>
                         </li>
+
+
 
 
 
