@@ -299,11 +299,11 @@
 
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Admin/LeaveType.aspx") %>">Add Employee Salary</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/AddLeave.aspx") %>">Master Payroll</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/DepartmentLeaveDetails.aspx") %>">Employee Salary List</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/LeaveSetting.aspx") %>">Generate PaySlip Monthly</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/AttendanceAdmin.aspx") %>">Transaction History</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/EmployeeSalary.aspx") %>">Add Employee Salary</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/MasterPayrollEarning.aspx") %>">Master Payroll</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/EmployeeSalaryList.aspx") %>">Employee Salary List</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/GeneratePaySlip.aspx") %>">Generate PaySlip Monthly</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/Transaction.aspx") %>">Transaction History</a></li>
                             </ul>
                         </li>
 
