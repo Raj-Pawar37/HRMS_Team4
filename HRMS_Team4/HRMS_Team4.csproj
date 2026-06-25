@@ -42,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.75.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.75.0\lib\net462\Google.Apis.dll</HintPath>
     </Reference>
@@ -50,6 +53,9 @@
     </Reference>
     <Reference Include="Google.Apis.Core, Version=1.75.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Core.1.75.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -80,13 +86,20 @@
   <ItemGroup>
     <Content Include="Admin\AddEvent.aspx" />
     <Content Include="Admin\AddMasterEvent.aspx" />
+    <Content Include="Admin\AttendanceReport.aspx" />
+    <Content Include="Admin\DailyReport.aspx" />
+    <Content Include="Admin\EmployeeReport.aspx" />
     <Content Include="Admin\EventList.aspx" />
+    <Content Include="Admin\LeaveReport.aspx" />
     <Content Include="Admin\MasterPayrollDeduction.aspx" />
     <Content Include="Admin\MasterPayrollDeductionType.aspx" />
     <Content Include="Admin\MasterPayrollEarning.aspx" />
     <Content Include="Admin\MasterPayrollEarningType.aspx" />
+    <Content Include="Admin\PayslipReport.aspx" />
+    <Content Include="Admin\ProjectReport.aspx" />
     <Content Include="Admin\Promotion.aspx" />
     <Content Include="Admin\Resignation.aspx" />
+    <Content Include="Admin\TaskReport.aspx" />
     <Content Include="Admin\Termination.aspx" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -2123,6 +2136,20 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AttendanceReport.aspx.cs">
+      <DependentUpon>AttendanceReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AttendanceReport.aspx.designer.cs">
+      <DependentUpon>AttendanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DailyReport.aspx.cs">
+      <DependentUpon>DailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DailyReport.aspx.designer.cs">
+      <DependentUpon>DailyReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2130,12 +2157,26 @@
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EmployeeReport.aspx.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmployeeReport.aspx.designer.cs">
+      <DependentUpon>EmployeeReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EventList.aspx.cs">
       <DependentUpon>EventList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\EventList.aspx.designer.cs">
       <DependentUpon>EventList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LeaveReport.aspx.cs">
+      <DependentUpon>LeaveReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LeaveReport.aspx.designer.cs">
+      <DependentUpon>LeaveReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\MasterPayrollDeduction.aspx.cs">
       <DependentUpon>MasterPayrollDeduction.aspx</DependentUpon>
@@ -2165,6 +2206,20 @@
     <Compile Include="Admin\MasterPayrollEarningType.aspx.designer.cs">
       <DependentUpon>MasterPayrollEarningType.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PayslipReport.aspx.cs">
+      <DependentUpon>PayslipReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PayslipReport.aspx.designer.cs">
+      <DependentUpon>PayslipReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProjectReport.aspx.cs">
+      <DependentUpon>ProjectReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProjectReport.aspx.designer.cs">
+      <DependentUpon>ProjectReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Promotion.aspx.cs">
       <DependentUpon>Promotion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2178,6 +2233,13 @@
     </Compile>
     <Compile Include="Admin\Resignation.aspx.designer.cs">
       <DependentUpon>Resignation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TaskReport.aspx.cs">
+      <DependentUpon>TaskReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TaskReport.aspx.designer.cs">
+      <DependentUpon>TaskReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Termination.aspx.cs">
       <DependentUpon>Termination.aspx</DependentUpon>

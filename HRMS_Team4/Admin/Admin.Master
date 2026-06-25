@@ -257,13 +257,13 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Admin/Project.aspx") %>">Employee Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/Task.aspx") %>">Attendance Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Leave Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">PaySlip Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Project Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Task Report</a></li>
-                                <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Daily Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/EmployeeReport.aspx") %>">Employee Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/AttendanceReport.aspx") %>">Attendance Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/LeaveReport.aspx") %>">Leave Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/PayslipReport.aspx") %>">PaySlip Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/ProjectReport.aspx") %>">Project Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/TaskReport.aspx") %>">Task Report</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/DailyReport.aspx") %>">Daily Report</a></li>
 
                             </ul>
                         </li>
