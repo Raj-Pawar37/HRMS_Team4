@@ -11,7 +11,7 @@ namespace HRMS_Team4.Admin
 {
 
 
-    public partial class WebForm3
+    public partial class Project
     {
     }
 }
