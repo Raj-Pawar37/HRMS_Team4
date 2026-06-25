@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HRMS_Team4.Manager
+namespace HRMS_Team4.User
 {
 
 
-    public partial class TicketAssignment
+    public partial class MyTickets
     {
 
         /// <summary>

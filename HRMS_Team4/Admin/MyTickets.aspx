@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager/Manager.Master" AutoEventWireup="true" CodeBehind="TicketAssignment.aspx.cs" Inherits="HRMS_Team4.Manager.TicketAssignment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="MyTickets.aspx.cs" Inherits="HRMS_Team4.Admin.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
         <div class="my-auto mb-2">
-            <h2 class="mb-1">Ticket Assignments</h2>
+            <h2 class="mb-1">Helpdesk & Support Workspace</h2>
             <nav>
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
@@ -16,7 +16,7 @@
         <div class="d-flex my-xl-auto right-content align-items-center flex-wrap">
             <div class="mb-2">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal_raise_ticket" class="btn btn-primary d-flex align-items-center">
-                    <i class="ti ti-circle-plus me-2"></i>Assign Tickets
+                    <i class="ti ti-circle-plus me-2"></i>Raise New Ticket
                 </button>
             </div>
         </div>
@@ -185,4 +185,3 @@
     </div>
 
 </asp:Content>  
-

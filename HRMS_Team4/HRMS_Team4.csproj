@@ -121,8 +121,10 @@
     <Content Include="Admin\Trainers.aspx" />
     <Content Include="Admin\TrainersType.aspx" />
     <Content Include="Admin\TrainingList.aspx" />
+    <Content Include="Admin\Project.aspx" />
+    <Content Include="Admin\ProjectUpload.aspx" />
     <Content Include="Admin\WebForm2.aspx" />
-    <Content Include="Admin\WebForm3.aspx" />
+    <Content Include="Admin\MyTickets.aspx" />
     <Content Include="Admin\LeaveType.aspx" />
     <Content Include="Admin\WebForm4.aspx" />
     <Content Include="assets\css\animate.css" />
@@ -2056,8 +2058,8 @@
     <Content Include="Manager\TicketAssignment.aspx" />
     <Content Include="Promotion.aspx" />
     <Content Include="uploads\user\man1.jpg" />
+    <Content Include="User\MyTickets.aspx" />
     <Content Include="User\UserProfile.aspx" />
-    <Content Include="User\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2334,6 +2336,20 @@
     <Compile Include="Admin\TrainingList.aspx.designer.cs">
       <DependentUpon>TrainingList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProjectUpload.aspx.cs">
+      <DependentUpon>ProjectUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProjectUpload.aspx.designer.cs">
+      <DependentUpon>ProjectUpload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2341,12 +2357,12 @@
     <Compile Include="Admin\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="Admin\MyTickets.aspx.cs">
+      <DependentUpon>MyTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="Admin\MyTickets.aspx.designer.cs">
+      <DependentUpon>MyTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Manager.Master.cs">
       <DependentUpon>Manager.Master</DependentUpon>
@@ -2393,6 +2409,13 @@
       <DependentUpon>WebForm4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\MyTickets.aspx.cs">
+      <DependentUpon>MyTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MyTickets.aspx.designer.cs">
+      <DependentUpon>MyTickets.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2406,13 +2429,6 @@
     </Compile>
     <Compile Include="User\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

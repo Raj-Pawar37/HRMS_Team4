@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Configuration;
 
-namespace HRMS_Team4.Manager
+namespace HRMS_Team4.Admin
 {
-    public partial class TicketAssignment : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
 
         string connStr = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();

@@ -10,9 +10,9 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-namespace HRMS_Team4.Manager
+namespace HRMS_Team4.User
 {
-    public partial class TicketAssignment : System.Web.UI.Page
+    public partial class MyTickets : System.Web.UI.Page
     {
 
         string connStr = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();

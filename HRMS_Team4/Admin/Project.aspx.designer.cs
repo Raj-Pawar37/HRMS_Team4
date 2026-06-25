@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HRMS_Team4.User
+namespace HRMS_Team4.Admin
 {
 
 
-    public partial class WebForm1
+    public partial class Project
     {
     }
 }
