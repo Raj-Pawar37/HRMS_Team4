@@ -238,9 +238,7 @@
 
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Raise Tickets</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">My Tickets</a></li>
-
+                                <li><a href="<%= ResolveUrl("~/User/MyTickets.aspx") %>">My Tickets</a></li>
                             </ul>
                         </li>
 

@@ -5,12 +5,14 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Configuration;
 
 namespace HRMS_Team4.Admin
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        private readonly string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pulse360_FinalDb;Integrated Security=True;";
+
+        string connStr = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {

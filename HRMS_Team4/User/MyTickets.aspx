@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Manager/Manager.Master" AutoEventWireup="true" CodeBehind="TicketAssignment.aspx.cs" Inherits="HRMS_Team4.Manager.TicketAssignment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/User.Master" AutoEventWireup="true" CodeBehind="MyTickets.aspx.cs" Inherits="HRMS_Team4.User.MyTickets" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
         <div class="my-auto mb-2">
-            <h2 class="mb-1">Ticket Assignments</h2>
+            <h2 class="mb-1">My Tickets</h2>
             <nav>
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
@@ -16,7 +17,7 @@
         <div class="d-flex my-xl-auto right-content align-items-center flex-wrap">
             <div class="mb-2">
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal_raise_ticket" class="btn btn-primary d-flex align-items-center">
-                    <i class="ti ti-circle-plus me-2"></i>Assign Tickets
+                    <i class="ti ti-circle-plus me-2"></i>Raise New Ticket
                 </button>
             </div>
         </div>
@@ -75,7 +76,7 @@
                                         <asp:LinkButton ID="btnViewSolution" runat="server" CommandName="ViewSolution" CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-sm btn-secondary me-1 text-white" Visible="false">
                                             <i class="ti ti-eye me-1"></i> View Solution
                                         </asp:LinkButton>
-                                        
+
                                         <span class="text-muted text-xs" id="lblNoAction" runat="server" visible="false">Locked</span>
                                     </td>
                                 </tr>
@@ -164,7 +165,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-secondary text-white">
-                    <h5 class="modal-title"><i class="ti ti-info-circle me-1"></i> Resolution Summary Logs</h5>
+                    <h5 class="modal-title"><i class="ti ti-info-circle me-1"></i>Resolution Summary Logs</h5>
                     <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -184,5 +185,4 @@
         </div>
     </div>
 
-</asp:Content>  
-
+</asp:Content>
