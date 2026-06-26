@@ -2559,6 +2559,13 @@
       <DependentUpon>WebForm4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\ApplyLeave.aspx.cs">
+      <DependentUpon>ApplyLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ApplyLeave.aspx.designer.cs">
+      <DependentUpon>ApplyLeave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Attendance.aspx.cs">
       <DependentUpon>Attendance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2566,12 +2573,40 @@
     <Compile Include="User\Attendance.aspx.designer.cs">
       <DependentUpon>Attendance.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Leave.aspx.cs">
+      <DependentUpon>Leave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Leave.aspx.designer.cs">
+      <DependentUpon>Leave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LeaveDetail.aspx.cs">
+      <DependentUpon>LeaveDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LeaveDetail.aspx.designer.cs">
+      <DependentUpon>LeaveDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\MyTickets.aspx.cs">
       <DependentUpon>MyTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\MyTickets.aspx.designer.cs">
       <DependentUpon>MyTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Payslip.aspx.cs">
+      <DependentUpon>Payslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Payslip.aspx.designer.cs">
+      <DependentUpon>Payslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\TimeSheet.aspx.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\TimeSheet.aspx.designer.cs">
+      <DependentUpon>TimeSheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
@@ -12179,7 +12214,12 @@
     <Content Include="assets\plugins\tabler-icons\webfont\tabler-icons.scss" />
     <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
+    <Content Include="User\ApplyLeave.aspx" />
     <Content Include="User\Attendance.aspx" />
+    <Content Include="User\Leave.aspx" />
+    <Content Include="User\LeaveDetail.aspx" />
+    <Content Include="User\Payslip.aspx" />
+    <Content Include="User\TimeSheet.aspx" />
     <Content Include="User\User.Master" />
     <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
