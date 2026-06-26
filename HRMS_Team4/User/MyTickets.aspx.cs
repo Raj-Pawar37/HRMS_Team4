@@ -16,15 +16,14 @@ namespace HRMS_Team4.User
     {
 
         string connStr = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
+        int SessionUserId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
             // Security Context Mock Configuration Line: Change values here to run cross-role debugging tests
-            if (Session["UserId"] == null)
-            {
-                Session["UserId"] = 42;
-                Session["Role"] = "Employee"; // Set to 'Manager' or 'Employee' to test security layout boundaries
-            }
 
             if (!IsPostBack)
             {
@@ -45,7 +44,7 @@ namespace HRMS_Team4.User
                     using (SqlCommand cmd = new SqlCommand("sp_GetTicketList", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@UserId", SessionUserId);
                         cmd.Parameters.AddWithValue("@Role", Session["Role"].ToString());
 
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))

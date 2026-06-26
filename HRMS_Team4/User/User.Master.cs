@@ -11,7 +11,22 @@ namespace HRMS_Team4.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] == null || Session["RoleId"] == null)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+                return;
+            }
 
+            int roleId = Convert.ToInt32(Session["RoleId"]);
+
+            if (roleId == 3)
+            {
+                Response.Redirect("~/Admin/Dashboard.aspx");
+            }
+            else if (roleId == 8)
+            {
+                Response.Redirect("~/Manager/TaskBoard.aspx");
+            }
         }
 
 

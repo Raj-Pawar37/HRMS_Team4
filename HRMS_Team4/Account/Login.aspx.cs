@@ -47,11 +47,11 @@ namespace HRMS_Team4.Accounts
                 }
                 else if (roleId == 8) // Manager
                 {
-                    Response.Redirect("~/Manager/Dashboard.aspx");
+                    Response.Redirect("~/Manager/TaskBoard.aspx");
                 }
                 else
                 {
-                    Response.Redirect("~/User/Dashboard.aspx");
+                    Response.Redirect("~/User/Attendance.aspx");
                 }
             }
             else

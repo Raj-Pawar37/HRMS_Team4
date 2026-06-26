@@ -11,7 +11,19 @@ namespace HRMS_Team4.Manager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] == null || Session["RoleId"] == null)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+                return;
+            }
 
+            int roleId = Convert.ToInt32(Session["RoleId"]);
+
+            if (roleId != 8)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+                return;
+            }
         }
 
 

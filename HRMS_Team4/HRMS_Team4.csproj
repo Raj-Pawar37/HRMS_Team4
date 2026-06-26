@@ -2625,6 +2625,13 @@
     <Compile Include="User\Payslip.aspx.designer.cs">
       <DependentUpon>Payslip.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\TimeSheet.aspx.cs">
       <DependentUpon>TimeSheet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -12243,6 +12250,7 @@
     <Content Include="User\Leave.aspx" />
     <Content Include="User\LeaveDetail.aspx" />
     <Content Include="User\Payslip.aspx" />
+    <Content Include="User\Test.aspx" />
     <Content Include="User\TimeSheet.aspx" />
     <Content Include="User\User.Master" />
     <Content Include="Manager\Manager.Master" />

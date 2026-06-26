@@ -13,11 +13,11 @@ namespace HRMS_Team4.User
     public partial class Payslip : System.Web.UI.Page
     {
         SqlConnection con;
-        int SessionUserId = 32;
+        int SessionUserId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
             if (!IsPostBack)
             {
@@ -58,7 +58,7 @@ namespace HRMS_Team4.User
                 int payslipId = 37;
                 //int payslipId = Convert.ToInt32(e.CommandArgument);
 
-                Response.Redirect("~/Admin/Payslips.aspx?PayslipId=" + payslipId);
+                Response.Redirect("~/User/test.aspx?UserId=" + payslipId);
             }
         }
     }

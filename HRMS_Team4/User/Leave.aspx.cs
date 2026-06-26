@@ -12,10 +12,13 @@ namespace HRMS_Team4.User
 {
     public partial class Leave : System.Web.UI.Page
     {
+        int SessionUserId;
         string cs = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
             if (!IsPostBack)
             {
                 BindLeaveRequests();
@@ -24,13 +27,13 @@ namespace HRMS_Team4.User
 
         private void BindLeaveRequests()
         {
-            int userId = 37; // replace with Session later
+
 
             using (SqlConnection con = new SqlConnection(cs))
             {
                 SqlCommand cmd = new SqlCommand("sp_LeaveRequests_ByUser_Select", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@UserId", SessionUserId);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

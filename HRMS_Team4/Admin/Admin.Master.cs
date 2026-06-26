@@ -11,7 +11,20 @@ namespace HRMS_Team4.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] == null || Session["RoleId"] == null)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+                return;
+            }
 
+            int roleId = Convert.ToInt32(Session["RoleId"]);
+
+            // Only Admin can access Admin pages
+            if (roleId != 3)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+                return;
+            }
         }
 
 

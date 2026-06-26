@@ -14,9 +14,12 @@ namespace HRMS_Team4.User
     {
 
         SqlConnection con;
-
+        int SessionUserId;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
             con = new SqlConnection(
             ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
@@ -71,11 +74,11 @@ namespace HRMS_Team4.User
 
             SqlCommand cmd = new SqlCommand("sp_Timesheet_User_Insert", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@UserId", Session["UserId"]);
+            cmd.Parameters.AddWithValue("@UserId", SessionUserId);
             cmd.Parameters.AddWithValue("@ProjectId", ddlProject.SelectedValue);
             cmd.Parameters.AddWithValue("@Date", txtDate.Text);
             cmd.Parameters.AddWithValue("@WorkHours", txtHours.Text);
-            cmd.Parameters.AddWithValue("@CreatedBy", Session["UserId"]);
+            cmd.Parameters.AddWithValue("@CreatedBy", SessionUserId);
 
             //con.Open();
             cmd.ExecuteNonQuery();

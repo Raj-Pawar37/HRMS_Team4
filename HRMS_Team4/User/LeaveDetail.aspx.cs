@@ -12,9 +12,11 @@ namespace HRMS_Team4.User
     public partial class LeaveDetail : System.Web.UI.Page
     {
         SqlConnection con;
-
+        int SessionUserId;
         protected void Page_Load(object sender, EventArgs e)
         {
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
             con = new SqlConnection(
                 ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();

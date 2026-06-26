@@ -14,10 +14,12 @@ namespace HRMS_Team4.User
     {
         //string cs = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
         SqlConnection con;
+        int SessionUserId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(
-               ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString);
             con.Open();
             if (!IsPostBack)
             {
@@ -53,7 +55,7 @@ namespace HRMS_Team4.User
                 //    lblMsg.Text = "Session expired. Please login again.";
                 //    return;
                 //}
-                int userId = 37;
+                
                 // int userId = Convert.ToInt32(Session["UserId"]);
                 int leaveTypeId = Convert.ToInt32(ddlLeaveType.SelectedValue);
 
@@ -72,7 +74,7 @@ namespace HRMS_Team4.User
                 SqlCommand cmd = new SqlCommand("sp_ApplyLeave", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@UserId", SessionUserId);
                 cmd.Parameters.AddWithValue("@LeaveTypeId", leaveTypeId);
                 cmd.Parameters.AddWithValue("@StartDate", startDate);
                 cmd.Parameters.AddWithValue("@EndDate", endDate);

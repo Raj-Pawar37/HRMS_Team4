@@ -16,11 +16,13 @@ namespace HRMS_Team4.User
     {
         SqlConnection conn;
 
-        //int SessionUserId = int.Parse(Session["UserId"])
-        int SessionUserId = 88;
+        //int SessionUserId = int.Parse(Session["UserId"]);
+        int SessionUserId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
             string cs = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString;
             conn = new SqlConnection(cs);
             conn.Open();

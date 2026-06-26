@@ -16,23 +16,18 @@ namespace HRMS_Team4.Manager
     {
 
         string connStr = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString.ToString();
+        int SessionUserId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Security Context Mock Configuration Line: Change values here to run cross-role debugging tests
-            if (Session["UserId"] == null)
-            {
-                Session["UserId"] = 42;
-                Session["Role"] = "Employee"; // Set to 'Manager' or 'Employee' to test security layout boundaries
-            }
+            SessionUserId = Convert.ToInt32(Session["UserId"]);
+
 
             if (!IsPostBack)
             {
                 LoadTickets();
-                if (Session["Role"].ToString() == "Manager")
-                {
+
                     PopulateEmployeeDropdown();
-                }
             }
         }
 
@@ -45,8 +40,8 @@ namespace HRMS_Team4.Manager
                     using (SqlCommand cmd = new SqlCommand("sp_GetTicketList", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
-                        cmd.Parameters.AddWithValue("@Role", Session["Role"].ToString());
+                        cmd.Parameters.AddWithValue("@UserId", SessionUserId);
+                        cmd.Parameters.AddWithValue("@Role", 8);
 
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
@@ -127,7 +122,7 @@ namespace HRMS_Team4.Manager
                         cmd.Parameters.AddWithValue("@TicketName", txtTicketName.Text.Trim());
                         cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
                         cmd.Parameters.AddWithValue("@Attachment", string.IsNullOrEmpty(targetVirtualPath) ? (object)DBNull.Value : targetVirtualPath);
-                        cmd.Parameters.AddWithValue("@RaisedBy", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@RaisedBy", SessionUserId);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -259,7 +254,7 @@ namespace HRMS_Team4.Manager
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TicketId", Convert.ToInt32(hfSelectedTicketId.Value));
-                        cmd.Parameters.AddWithValue("@AssignBy", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@AssignBy",SessionUserId);
                         cmd.Parameters.AddWithValue("@AssignTo", Convert.ToInt32(ddlEmployees.SelectedValue));
 
                         con.Open();
@@ -292,7 +287,7 @@ namespace HRMS_Team4.Manager
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@TicketId", Convert.ToInt32(hfResolveTicketId.Value));
-                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@UserId", SessionUserId);
                         cmd.Parameters.AddWithValue("@ResolutionDescription", txtResolutionNotes.Text.Trim());
 
                         con.Open();
