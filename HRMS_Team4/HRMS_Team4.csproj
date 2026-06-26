@@ -100,6 +100,7 @@
     <Content Include="Admin\Promotion.aspx" />
     <Content Include="Admin\Resignation.aspx" />
     <Content Include="Admin\Task.aspx" />
+    <Content Include="Admin\TaskBoard.aspx" />
     <Content Include="Admin\TaskReport.aspx" />
     <Content Include="Admin\Termination.aspx" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -2242,6 +2243,13 @@
     <Compile Include="Admin\Task.aspx.designer.cs">
       <DependentUpon>Task.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TaskBoard.aspx.cs">
+      <DependentUpon>TaskBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TaskBoard.aspx.designer.cs">
+      <DependentUpon>TaskBoard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\TaskReport.aspx.cs">
       <DependentUpon>TaskReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2484,6 +2492,7 @@
     <Compile Include="Models\DeductionTypeDTO.cs" />
     <Compile Include="Models\EarningDTO.cs" />
     <Compile Include="Models\EarningTypeDTO.cs" />
+    <Compile Include="Models\TaskBoardDTO.cs" />
     <Compile Include="Promotion.aspx.cs">
       <DependentUpon>Promotion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
