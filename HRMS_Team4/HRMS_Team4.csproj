@@ -99,6 +99,7 @@
     <Content Include="Admin\ProjectReport.aspx" />
     <Content Include="Admin\Promotion.aspx" />
     <Content Include="Admin\Resignation.aspx" />
+    <Content Include="Admin\Task.aspx" />
     <Content Include="Admin\TaskReport.aspx" />
     <Content Include="Admin\Termination.aspx" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -2233,6 +2234,13 @@
     </Compile>
     <Compile Include="Admin\Resignation.aspx.designer.cs">
       <DependentUpon>Resignation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Task.aspx.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Task.aspx.designer.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\TaskReport.aspx.cs">
       <DependentUpon>TaskReport.aspx</DependentUpon>

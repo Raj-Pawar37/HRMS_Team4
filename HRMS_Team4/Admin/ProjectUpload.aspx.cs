@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -9,7 +10,7 @@ namespace HRMS_Team4.Admin
 {
     public partial class ProjectUpload : System.Web.UI.Page
     {
-        string connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Pulse360_FinalDb;Integrated Security=True;";
+        string connString = ConfigurationManager.ConnectionStrings["Pulse360_FinalDb"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -178,6 +179,14 @@ namespace HRMS_Team4.Admin
                             ddlPriceType.SelectedValue = dr["PriceType"].ToString();
                             ddlManagerName.SelectedValue = dr["ManagerName"].ToString();
                         }
+                        string modalScript = "<script type='text/javascript'>" +
+                     "   document.addEventListener('DOMContentLoaded', function() {" +
+                     "       var myModal = new bootstrap.Modal(document.getElementById('add_project_modal'));" +
+                     "       myModal.show();" +
+                     "   });" +
+                     "</script>";
+
+                        ClientScript.RegisterStartupScript(this.GetType(), "ShowEditModal", modalScript);
                     }
 
                     cblTeamMembers.ClearSelection();
