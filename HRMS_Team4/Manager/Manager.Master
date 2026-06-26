@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css">
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 
 
@@ -119,156 +119,65 @@
 
 
                     <%--SIdE MAINU START FROM HERE--%>
-
                     <ul>
                         <li class="menu-title"><span>MAIN MENU</span></li>
+
                         <li>
-                            <ul>
+                            <a href="<%= ResolveUrl("~/Manager/Dashboard.aspx") %>">
+                                <i class="ti ti-smart-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
 
-                                <li class="submenu">
-                                    <a href="javascript:void(0);">
-                                        <i class="ti ti-smart-home"></i><span>Dashboard</span><span
-                                            class="badge badge-danger fs-10 fw-medium text-white p-1">Hot</span><span
-                                                class="menu-arrow"></span>
-                                    </a>
-                                    <ul>
-                                        <li><a href="index.html">Admin Dashboard</a></li>
-                                        <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                                        <li><a href="deals-dashboard.html">Deals Dashboard</a></li>
-                                        <li><a href="leads-dashboard.html">Leads Dashboard</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="submenu">
-                                    <a href="javascript:void(0);">
-                                        <i class="ti ti-users"></i>
-                                        <span>Leaves</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-
-                                    <ul>
-                                        <li><a href="<%= ResolveUrl("~/Manager/Leaves.aspx") %>">Leaves </a></li>
-                                        <li><a href="<%= ResolveUrl("~/Manager/LeaveAllocation.aspx") %>">Leave Allocation</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Manager/LeaveApproval.aspx") %>">Leave Approval</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Manager/Timesheet.aspx") %>">Timesheet Approval</a></li>
-
-                            <%--Projects SUBMENU--%>
                         <li class="submenu">
                             <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Projects</span>
+                                <i class="ti ti-users"></i>
+                                <span>Leaves</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+<%--                                <li><a href="<%= ResolveUrl("~/Manager/Leaves.aspx") %>">Leaves</a></li>--%>
+                                <li><a href="<%= ResolveUrl("~/Manager/LeaveAllocation.aspx") %>">Leave Allocation</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/LeaveApproval.aspx") %>">Leave Approval</a></li>
+                                <li><a href="<%= ResolveUrl("~/Manager/Timesheet.aspx") %>">Timesheet Approval</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-briefcase"></i>
+                                <span>Projects</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
                                 <li><a href="<%= ResolveUrl("~/Manager/Project.aspx") %>">Project</a></li>
                                 <li><a href="<%= ResolveUrl("~/Manager/Task.aspx") %>">Task</a></li>
                                 <li><a href="<%= ResolveUrl("~/Manager/TaskBoard.aspx") %>">Taskboard</a></li>
-
-                                    <ul>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Department.aspx") %>">Add Department</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Role.aspx") %>">Add Role</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Designation.aspx") %>">Add Designation</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeList.aspx") %>">Employee List</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeGrid.aspx") %>">Employee Grid</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/EmployeeDetails.aspx") %>">Employee Details</a></li>
                             </ul>
                         </li>
 
-
-
-
-
-                        <%--Leaves SUBMENU--%>
                         <li class="submenu">
                             <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Tickets</span>
+                                <i class="ti ti-ticket"></i>
+                                <span>Tickets</span>
                                 <span class="menu-arrow"></span>
-
-                            </a>
-                            <ul>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Approval</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Timsheet Approval</a></li>
-                                <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Leave Allocation</a></li>
-
-                            </ul>
-                        </li>
-
-
-
-                                        <li><a href="<%= ResolveUrl("~/Admin/TrainingList.aspx") %>">Training List</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/Trainers.aspx") %>">Trainers</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/TrainersType.aspx") %>">Trainers Type</a></li>
-
-                                    </ul>
-                                </li>
-
-                        <%--Tickets SUBMENU--%>
-                        <li class="submenu">
-                            <a href="javascript:void(0);">
-                                <i class="ti ti-smart-home"></i><span>Tickets</span>
-                                <span class="menu-arrow"></span>
-
                             </a>
                             <ul>
                                 <li><a href="<%= ResolveUrl("~/Manager/TicketAssignment.aspx") %>">Ticket Assignment</a></li>
-
                             </ul>
                         </li>
-
-
-
-
-
-                                <li class="submenu">
-                                    <a href="javascript:void(0);">
-                                        <i class="ti ti-smart-home"></i><span>Leaves</span>
-                                        <span class="menu-arrow"></span>
-
-                                    </a>
-                                    <ul>
-                                        <li><a href="<%= ResolveUrl("~/Admin/LeaveType.aspx") %>">Add Leave Type</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/AddLeave.aspx") %>">Add Leave</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/DepartmentLeaveDetails.aspx") %>">Department Leave Details</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/LeaveSetting.aspx") %>">Leave Setting</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/AttendanceAdmin.aspx") %>">Attendance Admin</a></li>
-                                        <li><a href="<%= ResolveUrl("~/Admin/TimeSheet.aspx") %>">TimeSheet</a></li>
-                                    </ul>
-                                </li>
-                                 <li class="submenu">
-                                <a href="javascript:void(0);">
-                                    <i class="ti ti-smart-home"></i><span>PayRoll</span>
-                                    <span class="menu-arrow"></span>
-
-                                </a>
-                                <ul>
-                                    <li><a href="<%= ResolveUrl("~/Admin/EmployeeSalary.aspx") %>">Employee Salary</a></li>
-                                    <li><a href="<%= ResolveUrl("~/Admin/MasterPayroll.aspx") %>">Master Payroll</a></li>
-                                    <li><a href="<%= ResolveUrl("~/Admin/EmpployeeSalaryList.aspx") %>">Employee Salary List</a></li>
-                                    <li><a href="<%= ResolveUrl("~/Admin/GeneratePayslip.aspx") %>">Generate Payslip Monthly</a></li>
-                                    <li><a href="<%= ResolveUrl("~/Admin/TransactionHistory.aspx") %>">Transaction History</a></li>
-
-                                </ul>
-                            </li>
-
-                        <%--LOGOUT SUBMENU--%>
 
                         <li>
                             <asp:LinkButton ID="btnLogout"
                                 runat="server"
                                 OnClick="btnLogout_Click">
-                                <i class="ti ti-logout text-danger"></i>
-                                <span class="text-danger">Logout</span>
+                                    <i class="ti ti-logout text-danger"></i>
+                                    <span class="text-danger">Logout</span>
                             </asp:LinkButton>
                         </li>
-
-
-
-                                <li>
-                                    <a href="<%= ResolveUrl("~/Admin/Promotion.aspx") %>">
-                                        <i class="ti ti-speakerphone"></i>
-                                        <span>Promotion</span>
-                                    </a>
-                                </li>
                     </ul>
+
+
                 </div>
             </div>
         </div>

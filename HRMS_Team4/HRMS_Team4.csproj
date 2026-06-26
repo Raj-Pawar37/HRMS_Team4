@@ -2077,6 +2077,9 @@
     <Content Include="Manager\LeaveAllocation.aspx" />
     <Content Include="Manager\LeaveApproval.aspx" />
     <Content Include="Manager\Leaves.aspx" />
+    <Content Include="Manager\Project.aspx" />
+    <Content Include="Manager\Task.aspx" />
+    <Content Include="Manager\TaskBoard.aspx" />
     <Content Include="Manager\Timesheet.aspx" />
     <Content Include="Manager\TicketAssignment.aspx" />
     <Content Include="Promotion.aspx" />
@@ -2480,6 +2483,27 @@
     </Compile>
     <Compile Include="Manager\Manager.Master.designer.cs">
       <DependentUpon>Manager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Task.aspx.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Task.aspx.designer.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TaskBoard.aspx.cs">
+      <DependentUpon>TaskBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\TaskBoard.aspx.designer.cs">
+      <DependentUpon>TaskBoard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\TicketAssignment.aspx.cs">
       <DependentUpon>TicketAssignment.aspx</DependentUpon>

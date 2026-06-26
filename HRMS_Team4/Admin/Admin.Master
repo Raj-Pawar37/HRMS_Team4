@@ -240,7 +240,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="<%= ResolveUrl("~/Admin/Project.aspx") %>">Project</a></li>
+                                <li><a href="<%= ResolveUrl("~/Admin/ProjectUpload.aspx") %>">Project</a></li>
                                 <li><a href="<%= ResolveUrl("~/Admin/Task.aspx") %>">Task</a></li>
                                 <li><a href="<%= ResolveUrl("~/Admin/TaskBoard.aspx") %>">Taskboard</a></li>
 

@@ -169,7 +169,6 @@
                             <ul>
                                 <li><a href="<%= ResolveUrl("~/User/ApplyLeave.aspx") %>">Apply Leave</a></li>
                                 <li><a href="<%= ResolveUrl("~/User/LeaveDetail.aspx") %>">Leave Details</a></li>
-                                <li><a href="<%= ResolveUrl("~/User/UserProfile.aspx") %>">User Profile</a></li>
                                 <li><a href="<%= ResolveUrl("~/User/Attendance.aspx") %>">Attendance(Emplpoyee)</a></li>
                                 <li><a href="<%= ResolveUrl("~/User/TimeSheet.aspx") %>">TimSheet</a></li>
 
